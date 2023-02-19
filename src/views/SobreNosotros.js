@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const SobreNosotros = () => {
   return (
     <div className="SobreNosotros">
       <h1 className="Titulo">Acerca de DBDStore</h1>
@@ -61,4 +61,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default SobreNosotros;
