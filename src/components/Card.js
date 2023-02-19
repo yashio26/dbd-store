@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Card = ({ info }) => {
-  const { image: img, name } = info;
+  const { img, producto } = info;
   return (
     <div
       style={{
@@ -17,7 +17,7 @@ const Card = ({ info }) => {
         width="100%"
         height="12rem"
       />
-      <p>{name}</p>
+      <p>{producto}</p>
       <button>ver mas</button>
     </div>
   );

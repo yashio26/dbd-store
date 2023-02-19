@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
-
-const infoCard = [
-  {
-    id: '1',
-    name: 'Half-life',
-    image:
-      'https://cdn.cloudflare.steamstatic.com/steam/apps/70/capsule_616x353.jpg?t=1666824272',
-  },
-];
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
 
 const ItemList = () => {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const traerProductos = async () => {
+      const docs = [];
+      const querySnapshot = await getDocs(collection(db, 'tienda'));
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+        /* return [{ id: doc.id, data: doc.data() }]; */
+      });
+      console.log('a');
+      setProductos(docs);
+    };
+    traerProductos();
+  }, []);
+
   return (
     <>
-      {infoCard.length > 0 ? (
-        infoCard.map((card) => <Card key={card.id} info={card} />)
+      {productos.length > 0 ? (
+        productos.map((card) => <Card key={card.id} info={card} />)
       ) : (
         <p>no hay cards</p>
       )}
