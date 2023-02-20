@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ info }) => {
-  const { img, producto } = info;
+  const { img, producto, id } = info;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/producto/${id}`);
+  };
+
   return (
     <div
       style={{
@@ -18,7 +25,7 @@ const Card = ({ info }) => {
         height="12rem"
       />
       <p>{producto}</p>
-      <button>ver mas</button>
+      <button onClick={handleClick}>ver mas</button>
     </div>
   );
 };
