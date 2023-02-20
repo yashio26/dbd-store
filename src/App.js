@@ -8,23 +8,28 @@ import Login from './views/Login';
 import Productos from './views/Productos';
 import Register from './views/Register';
 import ProductDetail from './views/ProductDetail';
+import Carrito from './views/Carrito';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Header />
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/productos" element={<Productos />} />
-          <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-          <Route path="/inicio-sesion" element={<Login />} />
-          <Route path="/registro" element={<Register />} />
-          <Route path="/producto/:id" element={<ProductDetail />} />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <CartProvider>
+        <div className="App">
+          <Header />
+          <NavBar />
+          <Routes>
+            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+            <Route path="/registro" element={<Register />} />
+            <Route path="/producto/:id" element={<ProductDetail />} />
+            <Route path="/productos" element={<Productos />} />
+            <Route path="/inicio-sesion" element={<Login />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+      </CartProvider>
+    </Router>
   );
 }
 

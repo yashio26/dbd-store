@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { db } from '../firebase/firebaseConfig';
 import {
   getDocs,
@@ -7,10 +7,22 @@ import {
   where,
   query,
 } from 'firebase/firestore';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import CartContext from '../context/CartContext';
 
 const ProductDetail = () => {
-  const [productos, setProductos] = useState({});
+  const [producto, setProducto] = useState({});
+
+  const { carrito, setCarrito } = useContext(CartContext);
+
+  const navigate = useNavigate();
+
+  const addProduct = () => {
+    console.log(carrito, producto);
+    setCarrito([...carrito, producto]);
+    console.log(carrito);
+    navigate('/carrito');
+  };
 
   const { id } = useParams();
 
@@ -21,7 +33,7 @@ const ProductDetail = () => {
       );
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
-        setProductos({ ...doc.data(), id: doc.id });
+        setProducto({ ...doc.data(), id: doc.id });
       });
       console.log('a');
     };
@@ -30,8 +42,9 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <h1>{productos.producto}</h1>
-      <img src={productos.img} alt={productos.producto} />
+      <h1>{producto.producto}</h1>
+      <img src={producto.img} alt={producto.producto} />
+      <button onClick={addProduct}>agregar producto</button>
     </div>
   );
 };
