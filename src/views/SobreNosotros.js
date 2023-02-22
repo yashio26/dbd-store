@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
+
+const formularioDeContacto = {
+  user: '',
+  description: '',
+  email: '',
+};
 
 const SobreNosotros = () => {
+  const [datosContacto, setDatosContacto] = useState(formularioDeContacto);
+
+  const [contacto, setContacto] = useState('');
+
+  const handleOnChange = (e) => {
+    const { value, name } = e.target;
+    setDatosContacto({ ...datosContacto, [name]: value });
+  };
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const docRef = await addDoc(collection(db, 'contacto'), {
+      contacto: datosContacto,
+    });
+    setContacto(docRef);
+    setDatosContacto(formularioDeContacto);
+  };
+
   return (
     <div className="SobreNosotros">
       <h1 className="Titulo">Acerca de DBDStore</h1>
@@ -25,37 +50,47 @@ const SobreNosotros = () => {
       </p>
       <h2>Contacto</h2>
       <div className="FormularioDeContacto">
-        <form /* onSubmit={onSubmit} */>
-          <label>Nombre</label>
-          <input
-            required
-            type="text"
-            placeholder="Nombre"
-            //value={datosContacto.name}
-            name="name"
-            //onChange={handleOnChange}
-          />
-          <label>Email</label>
-          <input
-            required
-            type="email"
-            placeholder="Email"
-            //value={datosContacto.email}
-            name="email"
-            //onChange={handleOnChange}
-          />
-          <div>
-            <label>¿Que quieres consultar?</label>
-            <textarea
-              required
-              placeholder="Descripcion"
-              //value={datosContacto.description}
-              name="description"
-              //onChange={handleOnChange}
+        {contacto ? (
+          <>
+            <p>¡Los datos de contacto fueron enviados correctamente!</p>
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/dbd-latino.appspot.com/o/dbd-game.gif?alt=media&token=af15ede5-92da-4dd6-815a-bba017f095b0"
+              alt="Logo-Dead-By-Daylight"
             />
-          </div>
-          <button>Enviar</button>
-        </form>
+          </>
+        ) : (
+          <form onSubmit={onSubmit}>
+            <label>Usuario</label>
+            <input
+              required
+              type="text"
+              placeholder="Usuario"
+              value={datosContacto.user}
+              name="user"
+              onChange={handleOnChange}
+            />
+            <label>Email</label>
+            <input
+              required
+              type="email"
+              placeholder="Email"
+              value={datosContacto.email}
+              name="email"
+              onChange={handleOnChange}
+            />
+            <div>
+              <label>¿Que quieres consultar?</label>
+              <textarea
+                required
+                placeholder="Descripcion"
+                value={datosContacto.description}
+                name="description"
+                onChange={handleOnChange}
+              />
+            </div>
+            <button>Enviar</button>
+          </form>
+        )}
       </div>
     </div>
   );
