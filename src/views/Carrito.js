@@ -9,7 +9,7 @@ const Carrito = () => {
     <div>
       <h1>Carrito</h1>
       {carrito.length > 0 ? (
-        carrito.map((carro) => <CartItem info={carro} />)
+        carrito.map((carro) => <CartItem key={carro.id} info={carro} />)
       ) : (
         <h1>No hay ningun producto</h1>
       )}

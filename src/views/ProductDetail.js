@@ -13,7 +13,11 @@ import CartContext from '../context/CartContext';
 const ProductDetail = () => {
   const [producto, setProducto] = useState({});
 
+  const [counter, setCounter] = useState(1);
+
   const { carrito, setCarrito } = useContext(CartContext);
+
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -24,7 +28,17 @@ const ProductDetail = () => {
     navigate('/carrito');
   };
 
-  const { id } = useParams();
+  const addQuantity = () => {
+    if (counter < producto.stock) {
+      setCounter(counter + 1);
+    }
+  };
+
+  const subtractQuantity = () => {
+    if (producto.stock >= counter && counter > 1) {
+      setCounter(counter - 1);
+    }
+  };
 
   useEffect(() => {
     const traerProductos = async () => {
@@ -32,7 +46,6 @@ const ProductDetail = () => {
         query(collection(db, 'tienda'), where(documentId(), '==', id))
       );
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         setProducto({ ...doc.data(), id: doc.id });
       });
       console.log('a');
@@ -40,11 +53,25 @@ const ProductDetail = () => {
     traerProductos();
   }, [id]);
 
+  console.log(producto);
+
   return (
     <div>
       <h1>{producto.producto}</h1>
       <img src={producto.img} alt={producto.producto} />
-      <button onClick={addProduct}>agregar producto</button>
+      {producto.stock < 1 ? (
+        <p>No quedan unidades.</p>
+      ) : (
+        <>
+          <p>{producto.stock} unidades disponibles.</p>
+          <div>
+            <button onClick={addQuantity}>+</button>
+            <p>{counter}</p>
+            <button onClick={subtractQuantity}>-</button>
+          </div>
+          <button onClick={addProduct}>agregar producto</button>
+        </>
+      )}
     </div>
   );
 };

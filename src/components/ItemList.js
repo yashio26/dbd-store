@@ -3,7 +3,7 @@ import Card from './Card';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
-const ItemList = ({ categoria }) => {
+const ItemList = ({ categoria, capitalizeWord }) => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const ItemList = ({ categoria }) => {
         const docs = [];
         const q = query(
           collection(db, 'tienda'),
-          where('categoria', '==', categoria)
+          where('categoria', '==', capitalizeWord(categoria))
         );
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
@@ -34,7 +34,7 @@ const ItemList = ({ categoria }) => {
       };
       traerProductos();
     }
-  }, [categoria]);
+  }, [categoria, capitalizeWord]);
 
   return (
     <>
