@@ -23,7 +23,23 @@ const ProductDetail = () => {
 
   const addProduct = () => {
     console.log(carrito, producto);
-    setCarrito([...carrito, producto]);
+    const productoEnCarrito = carrito.find(
+      (product) => product.id === producto.id
+    );
+    if (carrito.includes(productoEnCarrito)) {
+      console.log('producto encontrado', productoEnCarrito);
+      productoEnCarrito.cantidad = counter;
+      /* const changeQuantity = (productoEnCarrito.quantity = counter); */
+      /* const updateQuantity = { ...producto, cantidad: counter }; */
+      /* if (carrito.includes(productoEnCarrito)) {
+        productoEnCarrito.cantidad = counter;
+      } */
+      /* setCarrito([...carrito, (productoEnCarrito.cantidad = counter)]); */
+    } else {
+      const updateQuantity = { ...producto, cantidad: counter };
+      console.log('producto no encontrado');
+      setCarrito([...carrito, updateQuantity]);
+    }
     console.log(carrito);
     navigate('/carrito');
   };
