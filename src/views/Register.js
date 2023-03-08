@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../firebase/firebaseConfig';
@@ -13,19 +13,50 @@ const initialRegister = {
 const Register = () => {
   const [register, setRegister] = useState(initialRegister);
 
+  const [error, setError] = useState(false);
+
+  const getUser = async () => {
+    const docs = [];
+    const q = /* query( */ collection(db, 'usuarios'); /* ,
+      where('usuario', '==', register.usuario),
+      where('email', '==', register.email)
+    ) */
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      const { email, usuario } = doc.data();
+      docs.push({ email, usuario });
+    });
+    const findUser =
+      docs.find((el) => el.usuario === register.usuario) ||
+      docs.find((el) => el.email === register.email);
+    return findUser;
+  };
+
   const handleChange = (e) => {
     const { value, name } = e.target;
     setRegister({ ...register, [name]: value });
   };
-  console.log(register);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const docRef = await addDoc(collection(db, 'usuarios'), {
-      ...register,
-    });
-    /* setContacto(docRef); */
-    setRegister(initialRegister);
+    const userExists = await getUser();
+    if (userExists) {
+      console.log('usuario encontrado en la base de datos', userExists);
+      setError(true);
+    } else {
+      console.log('usuario no encontrado asi que se agrega', userExists);
+      const addUser = async () => {
+        const docRef = await addDoc(collection(db, 'usuarios'), {
+          ...register,
+        });
+        console.log(docRef);
+        setError(false);
+        setRegister(initialRegister);
+      };
+      addUser();
+    }
   };
 
   return (
@@ -58,6 +89,7 @@ const Register = () => {
           name="usuario"
           value={register.usuario}
         />
+        {error ? <p>Nombre de usuario en uso.</p> : null}
         <hr />
         <label>Contraseña</label>
         <input
