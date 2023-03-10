@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ user, setUser }) => {
+  const login = () => {
+    if (!!user) {
+      setUser(null);
+    } else setUser(true);
+  };
+
   return (
     <div className="Header">
       <Link to="/" className="Link">
@@ -9,9 +15,20 @@ const Header = () => {
       </Link>
       <div>
         <input placeholder="buscador"></input>
-        <Link to={'/inicio-sesion'}>
-          <p>Mi cuenta</p>
-        </Link>
+        {user ? (
+          <Link to={'/datos'}>
+            <p>Mi cuenta</p>
+          </Link>
+        ) : (
+          <Link to={'/inicio-sesion'}>
+            <p>Mi cuenta</p>
+          </Link>
+        )}
+        <input
+          type="button"
+          onClick={login}
+          value={!!user ? 'Logout' : 'Login'}
+        />
       </div>
     </div>
   );

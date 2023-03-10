@@ -10,23 +10,33 @@ import Register from './views/Register';
 import ProductDetail from './views/ProductDetail';
 import Carrito from './views/Carrito';
 import { CartProvider } from './context/CartContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Datos from './views/Datos';
+import { useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <Router>
       <CartProvider>
         <div className="App">
-          <Header />
+          <Header user={user} setUser={setUser} />
           <NavBar />
           <Routes>
-            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-            <Route path="/registro" element={<Register />} />
-            <Route path="/producto/:id" element={<ProductDetail />} />
-            <Route path="/productos" element={<Productos />} />
-            <Route path="/productos/:categoria" element={<Productos />} />
-            <Route path="/inicio-sesion" element={<Login />} />
-            <Route path="/carrito" element={<Carrito />} />
-            <Route path="/" element={<Home />} />
+            <Route element={<ProtectedRoute user={user} isAuth={true} />}>
+              <Route path="/registro" element={<Register />} />
+              <Route path="/inicio-sesion" element={<Login />} />
+            </Route>
+            <Route element={<ProtectedRoute user={user} />}>
+              <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+              <Route path="/producto/:id" element={<ProductDetail />} />
+              <Route path="/productos" element={<Productos />} />
+              <Route path="/productos/:categoria" element={<Productos />} />
+              <Route path="/datos" element={<Datos />} />
+              <Route path="/carrito" element={<Carrito />} />
+              <Route path="/" element={<Home />} />
+            </Route>
           </Routes>
         </div>
       </CartProvider>
