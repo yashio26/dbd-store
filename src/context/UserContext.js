@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const login = () => {
     if (!!user) {
       setUser(null);
+      sessionStorage.removeItem('usuario');
     } else setUser(true);
   };
 

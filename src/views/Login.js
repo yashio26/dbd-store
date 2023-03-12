@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
+import UserContext from '../context/UserContext';
 
 const initialLogin = { usuario: '', contraseña: '' };
 
 const Login = () => {
+  const { setUser } = useContext(UserContext);
+
   const [login, setLogin] = useState(initialLogin);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const session = sessionStorage.getItem('usuario');
+    if (session) {
+      console.log('hay datos en session');
+      setUser(session);
+    } else console.log('no hay datos en session');
+  }, [setUser]);
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -39,6 +50,7 @@ const Login = () => {
     if (Object.keys(user).length >= 1) {
       console.log('setea', Object.keys(user).length);
       sessionStorage.setItem('usuario', user.usuario);
+      setUser(user.usuario);
       navigate('/');
     } else {
       console.log(Object.keys(user).length);

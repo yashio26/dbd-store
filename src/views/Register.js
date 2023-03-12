@@ -1,6 +1,7 @@
 import { addDoc, collection, getDocs } from 'firebase/firestore';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import UserContext from '../context/UserContext';
 import { db } from '../firebase/firebaseConfig';
 
 const initialRegister = {
@@ -11,9 +12,21 @@ const initialRegister = {
 };
 
 const Register = () => {
+  const { setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
   const [register, setRegister] = useState(initialRegister);
 
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const session = sessionStorage.getItem('usuario');
+    if (session) {
+      console.log('hay datos en session');
+      setUser(session);
+    } else console.log('no hay datos en session');
+  }, [setUser]);
 
   const getUser = async () => {
     const docs = [];
@@ -52,8 +65,11 @@ const Register = () => {
           ...register,
         });
         console.log(docRef);
+        sessionStorage.setItem('usuario', register.usuario);
+        setUser(register.usuario);
         setError(false);
         setRegister(initialRegister);
+        navigate('/');
       };
       addUser();
     }
