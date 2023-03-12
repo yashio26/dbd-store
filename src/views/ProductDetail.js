@@ -29,6 +29,7 @@ const ProductDetail = () => {
     if (carrito.includes(productoEnCarrito)) {
       console.log('producto encontrado', productoEnCarrito);
       productoEnCarrito.cantidad = counter;
+      productoEnCarrito.total = counter * productoEnCarrito.precio;
       /* const changeQuantity = (productoEnCarrito.quantity = counter); */
       /* const updateQuantity = { ...producto, cantidad: counter }; */
       /* if (carrito.includes(productoEnCarrito)) {
@@ -36,7 +37,12 @@ const ProductDetail = () => {
       } */
       /* setCarrito([...carrito, (productoEnCarrito.cantidad = counter)]); */
     } else {
-      const updateQuantity = { ...producto, cantidad: counter };
+      const total = counter * producto.precio;
+      const updateQuantity = {
+        ...producto,
+        cantidad: counter,
+        total: total,
+      };
       console.log('producto no encontrado');
       setCarrito([...carrito, updateQuantity]);
     }
@@ -69,7 +75,7 @@ const ProductDetail = () => {
     traerProductos();
   }, [id]);
 
-  console.log(producto);
+  /* console.log(producto); */
 
   return (
     <div>
@@ -80,6 +86,9 @@ const ProductDetail = () => {
       ) : (
         <>
           <p>{producto.stock} unidades disponibles.</p>
+          <p>
+            Total: {counter}*{producto.precio}
+          </p>
           <div>
             <button onClick={addQuantity}>+</button>
             <p>{counter}</p>

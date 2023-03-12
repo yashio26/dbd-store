@@ -5,7 +5,9 @@ const CartItem = ({ info }) => {
     <div>
       <h1>{info.producto}</h1>
       <img width={'50px'} height={'50px'} src={info.img} alt="a" />
-      <p>{info.cantidad}</p>
+      <p>
+        {info.cantidad} - {info.precio} - {info.total}
+      </p>
     </div>
   );
 };
