@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../context/UserContext';
 
-const Header = ({ user, setUser }) => {
-  const login = () => {
-    if (!!user) {
-      setUser(null);
-    } else setUser(true);
-  };
+const Header = () => {
+  const { user, login } = useContext(UserContext);
 
   return (
     <div className="Header">
