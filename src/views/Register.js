@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
@@ -61,7 +61,7 @@ const Register = () => {
     } else {
       console.log('usuario no encontrado asi que se agrega', userExists);
       const addUser = async () => {
-        const docRef = await addDoc(collection(db, 'usuarios'), {
+        const docRef = await setDoc(doc(db, 'usuarios', register.usuario), {
           ...register,
         });
         console.log(docRef);
