@@ -28,8 +28,10 @@ const ProductDetail = () => {
     );
     if (carrito.includes(productoEnCarrito)) {
       console.log('producto encontrado', productoEnCarrito);
+      //Esto se puede cambiar por un setCarrito, revisar. Ya que asi modifico el carrito directamente sin pasar por el seteo.
       productoEnCarrito.cantidad = counter;
       productoEnCarrito.total = counter * productoEnCarrito.precio;
+      sessionStorage.setItem('carrito', JSON.stringify(carrito));
       /* const changeQuantity = (productoEnCarrito.quantity = counter); */
       /* const updateQuantity = { ...producto, cantidad: counter }; */
       /* if (carrito.includes(productoEnCarrito)) {
@@ -45,6 +47,10 @@ const ProductDetail = () => {
       };
       console.log('producto no encontrado');
       setCarrito([...carrito, updateQuantity]);
+      sessionStorage.setItem(
+        'carrito',
+        JSON.stringify([...carrito, updateQuantity])
+      );
     }
     console.log(carrito);
     navigate('/carrito');

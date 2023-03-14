@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 const CartContext = createContext();
 
@@ -6,6 +6,13 @@ export const CartProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
 
   const [precioTotal, setPrecioTotal] = useState(0);
+
+  useEffect(() => {
+    const cart = JSON.parse(sessionStorage.getItem('carrito'));
+    if (cart) {
+      setCarrito(cart);
+    }
+  }, []);
 
   const calculoPrecioTotal = () => {
     let precio = 0;

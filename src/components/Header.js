@@ -1,9 +1,20 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import CartContext from '../context/CartContext';
 import UserContext from '../context/UserContext';
 
 const Header = () => {
-  const { user, login } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const { setCarrito } = useContext(CartContext);
+
+  const login = () => {
+    if (!!user) {
+      sessionStorage.removeItem('carrito');
+      sessionStorage.removeItem('usuario');
+      setCarrito([]);
+      setUser(null);
+    } else setUser(true);
+  };
 
   return (
     <div className="Header">
