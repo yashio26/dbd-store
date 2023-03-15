@@ -13,6 +13,8 @@ import { CartProvider } from './context/CartContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Datos from './views/Datos';
 import { UserProvider } from './context/UserContext';
+import Compras from './views/Compras';
+import CompraDetail from './views/CompraDetail';
 
 function App() {
   /* const [user, setUser] = useState(null); */
@@ -35,6 +37,8 @@ function App() {
                 <Route path="/productos" element={<Productos />} />
                 <Route path="/productos/:categoria" element={<Productos />} />
                 <Route path="/datos" element={<Datos />} />
+                <Route path="/datos/compras" element={<Compras />} />
+                <Route path="/datos/compra/:id" element={<CompraDetail />} />
                 <Route path="/carrito" element={<Carrito />} />
                 <Route path="/" element={<Home />} />
               </Route>
