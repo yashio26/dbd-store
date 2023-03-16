@@ -13,13 +13,13 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+  /* useEffect(() => {
     const session = sessionStorage.getItem('usuario');
     if (session) {
       console.log('hay datos en session');
       setUser(session);
     } else console.log('no hay datos en session');
-  }, [setUser]);
+  }, [setUser]); */
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -49,7 +49,10 @@ const Login = () => {
     console.log(user);
     if (Object.keys(user).length >= 1) {
       console.log('setea', Object.keys(user).length);
-      sessionStorage.setItem('usuario', user.usuario);
+      sessionStorage.setItem(
+        'usuario',
+        JSON.stringify({ usuario: user.usuario })
+      );
       setUser(user.usuario);
       navigate('/');
     } else {

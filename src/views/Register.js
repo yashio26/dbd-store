@@ -20,13 +20,13 @@ const Register = () => {
 
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const session = sessionStorage.getItem('usuario');
     if (session) {
       console.log('hay datos en session');
       setUser(session);
     } else console.log('no hay datos en session');
-  }, [setUser]);
+  }, [setUser]); */
 
   const getUser = async () => {
     const docs = [];

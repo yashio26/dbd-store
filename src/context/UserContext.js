@@ -1,9 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  /* useEffect(() => {
+    const session = sessionStorage.getItem('usuario');
+    if (session) {
+      console.log('hay datos en session');
+      setUser(JSON.parse(session));
+    } else console.log('no hay datos en session');
+  }, [setUser]); */
 
   const data = { user, setUser };
 
