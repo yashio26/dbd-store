@@ -65,7 +65,10 @@ const Register = () => {
           ...register,
         });
         console.log(docRef);
-        sessionStorage.setItem('usuario', register.usuario);
+        sessionStorage.setItem(
+          'usuario',
+          JSON.stringify({ usuario: register.usuario })
+        );
         setUser(register.usuario);
         setError(false);
         setRegister(initialRegister);
