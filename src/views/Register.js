@@ -67,9 +67,9 @@ const Register = () => {
         console.log(docRef);
         sessionStorage.setItem(
           'usuario',
-          JSON.stringify({ usuario: register.usuario })
+          JSON.stringify({ usuario: register.usuario, email: register.email })
         );
-        setUser(register.usuario);
+        setUser({ usuario: register.usuario, email: register.email });
         setError(false);
         setRegister(initialRegister);
         navigate('/');
