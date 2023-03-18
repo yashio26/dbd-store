@@ -7,7 +7,7 @@ const ProtectedRoute = ({ isAuth }) => {
   const [userLoaded, setUserLoaded] = useState(false);
 
   useEffect(() => {
-    const session = sessionStorage.getItem('usuario');
+    const session = JSON.parse(sessionStorage.getItem('usuario'));
     if (session) {
       console.log('hay datos en session');
       setUser(session);

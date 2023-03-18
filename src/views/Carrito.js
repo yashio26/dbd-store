@@ -1,20 +1,31 @@
+import { addDoc, collection } from 'firebase/firestore';
 import React, { useContext, useEffect } from 'react';
 import CartItem from '../components/CartItem';
 import CartContext from '../context/CartContext';
+import UserContext from '../context/UserContext';
+import { db } from '../firebase/firebaseConfig';
 
 const Carrito = () => {
-  const { carrito, precioTotal, calculoPrecioTotal, compra, setCompra } =
-    useContext(CartContext);
+  const { carrito, precioTotal, calculoPrecioTotal } = useContext(CartContext);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     calculoPrecioTotal();
   }, [calculoPrecioTotal]);
 
-  const handleClick = () => {
-    setCompra(carrito);
+  const handleClick = async (e) => {
+    e.preventDefault();
+    console.log(user);
+    const docRef = await addDoc(collection(db, 'probandoCompra'), {
+      Comprador: { usuario: user.usuario, email: user.email },
+      Fecha: new Date().toLocaleString(),
+      Productos: carrito,
+      Total: precioTotal,
+    });
+    console.log('Compra realizada, ', docRef.id);
+    /* setCompra(carrito); */
   };
-
-  console.log(compra);
 
   return (
     <div>

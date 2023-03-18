@@ -7,8 +7,6 @@ export const CartProvider = ({ children }) => {
 
   const [precioTotal, setPrecioTotal] = useState(0);
 
-  const [compra, setCompra] = useState(null);
-
   useEffect(() => {
     const cart = JSON.parse(sessionStorage.getItem('carrito'));
     if (cart) {
@@ -30,8 +28,6 @@ export const CartProvider = ({ children }) => {
     setCarrito,
     precioTotal,
     calculoPrecioTotal,
-    compra,
-    setCompra,
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

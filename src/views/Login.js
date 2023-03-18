@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { query, collection, where, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
@@ -37,8 +37,8 @@ const Login = () => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      const { contraseña, usuario } = doc.data();
-      docs = { contraseña, usuario };
+      const { email, usuario } = doc.data();
+      docs = { email, usuario };
     });
     return docs;
   };
@@ -51,9 +51,9 @@ const Login = () => {
       console.log('setea', Object.keys(user).length);
       sessionStorage.setItem(
         'usuario',
-        JSON.stringify({ usuario: user.usuario })
+        JSON.stringify({ usuario: user.usuario, email: user.email })
       );
-      setUser(user.usuario);
+      setUser(user);
       navigate('/');
     } else {
       console.log(Object.keys(user).length);
