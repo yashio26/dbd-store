@@ -18,10 +18,10 @@ const Carrito = () => {
     e.preventDefault();
     console.log(user);
     const docRef = await addDoc(collection(db, 'probandoCompra'), {
-      Comprador: { usuario: user.usuario, email: user.email },
-      Fecha: new Date().toLocaleString(),
-      Productos: carrito,
-      Total: precioTotal,
+      comprador: { usuario: user.usuario, email: user.email },
+      fecha: new Date().toLocaleString(),
+      productos: carrito,
+      total: precioTotal,
     });
     console.log('Compra realizada, ', docRef.id);
     /* setCompra(carrito); */

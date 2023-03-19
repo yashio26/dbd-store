@@ -5,6 +5,8 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  const [comprasHechas, setComprasHechas] = useState(null);
+
   /* useEffect(() => {
     const session = sessionStorage.getItem('usuario');
     if (session) {
@@ -13,7 +15,7 @@ export const UserProvider = ({ children }) => {
     } else console.log('no hay datos en session');
   }, [setUser]); */
 
-  const data = { user, setUser };
+  const data = { user, setUser, comprasHechas, setComprasHechas };
 
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 };
