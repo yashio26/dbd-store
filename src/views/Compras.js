@@ -1,5 +1,6 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import { db } from '../firebase/firebaseConfig';
 
@@ -35,9 +36,16 @@ const Compras = () => {
               style={{ border: '2px solid white', margin: '5px' }}
             >
               {el.productos.map((prod) => {
-                return <h1 key={prod.id}>{prod.producto}</h1>;
+                return (
+                  <div key={prod.id}>
+                    <h1 key={prod.id}>{prod.producto}</h1>
+                    <h2>{el.fecha}</h2>
+                  </div>
+                );
               })}
-              <h2>{el.fecha}</h2>
+              <Link to={`/datos/compra/${el.id}`}>
+                <button>Ver compra</button>
+              </Link>
             </div>
           );
         })

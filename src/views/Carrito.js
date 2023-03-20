@@ -1,14 +1,18 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 import CartContext from '../context/CartContext';
 import UserContext from '../context/UserContext';
 import { db } from '../firebase/firebaseConfig';
 
 const Carrito = () => {
-  const { carrito, precioTotal, calculoPrecioTotal } = useContext(CartContext);
+  const { carrito, setCarrito, precioTotal, calculoPrecioTotal } =
+    useContext(CartContext);
 
   const { user } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     calculoPrecioTotal();
@@ -23,7 +27,9 @@ const Carrito = () => {
       productos: carrito,
       total: precioTotal,
     });
+    setCarrito([]);
     console.log('Compra realizada, ', docRef.id);
+    navigate(`/datos/compra/${docRef.id}`);
     /* setCompra(carrito); */
   };
 
