@@ -15,6 +15,7 @@ import Datos from './views/Datos';
 import { UserProvider } from './context/UserContext';
 import Compras from './views/Compras';
 import CompraDetail from './views/CompraDetail';
+import Admin from './views/Admin';
 
 function App() {
   /* const [user, setUser] = useState(null); */
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/datos/compras" element={<Compras />} />
                 <Route path="/datos/compra/:id" element={<CompraDetail />} />
                 <Route path="/carrito" element={<Carrito />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route path="/" element={<Home />} />
               </Route>
             </Routes>
