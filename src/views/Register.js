@@ -63,13 +63,22 @@ const Register = () => {
       const addUser = async () => {
         const docRef = await setDoc(doc(db, 'usuarios', register.usuario), {
           ...register,
+          rol: 'user',
         });
         console.log(docRef);
         sessionStorage.setItem(
           'usuario',
-          JSON.stringify({ usuario: register.usuario, email: register.email })
+          JSON.stringify({
+            usuario: register.usuario,
+            email: register.email,
+            rol: 'user',
+          })
         );
-        setUser({ usuario: register.usuario, email: register.email });
+        setUser({
+          usuario: register.usuario,
+          email: register.email,
+          rol: 'user',
+        });
         setError(false);
         setRegister(initialRegister);
         navigate('/');

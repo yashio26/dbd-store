@@ -32,7 +32,7 @@ function App() {
                 <Route path="/registro" element={<Register />} />
                 <Route path="/inicio-sesion" element={<Login />} />
               </Route>
-              <Route element={<ProtectedRoute />}>
+              <Route element={<ProtectedRoute isUser={true} />}>
                 <Route path="/sobre-nosotros" element={<SobreNosotros />} />
                 <Route path="/producto/:id" element={<ProductDetail />} />
                 <Route path="/productos" element={<Productos />} />
@@ -41,8 +41,10 @@ function App() {
                 <Route path="/datos/compras" element={<Compras />} />
                 <Route path="/datos/compra/:id" element={<CompraDetail />} />
                 <Route path="/carrito" element={<Carrito />} />
-                <Route path="/admin" element={<Admin />} />
                 <Route path="/" element={<Home />} />
+              </Route>
+              <Route element={<ProtectedRoute isAdmin="admin" />}>
+                <Route path="/admin" element={<Admin />} />
               </Route>
             </Routes>
           </div>

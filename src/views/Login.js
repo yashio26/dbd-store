@@ -37,8 +37,8 @@ const Login = () => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      const { email, usuario } = doc.data();
-      docs = { email, usuario };
+      const { email, rol, usuario } = doc.data();
+      docs = { email, rol, usuario };
     });
     return docs;
   };
@@ -51,7 +51,11 @@ const Login = () => {
       console.log('setea', Object.keys(user).length);
       sessionStorage.setItem(
         'usuario',
-        JSON.stringify({ usuario: user.usuario, email: user.email })
+        JSON.stringify({
+          usuario: user.usuario,
+          email: user.email,
+          rol: user.rol,
+        })
       );
       setUser(user);
       navigate('/');

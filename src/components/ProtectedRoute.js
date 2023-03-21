@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
-const ProtectedRoute = ({ isAuth }) => {
+const ProtectedRoute = ({ isAuth, isAdmin, isUser }) => {
   const { user, setUser } = useContext(UserContext);
   const [userLoaded, setUserLoaded] = useState(false);
 
@@ -25,6 +25,12 @@ const ProtectedRoute = ({ isAuth }) => {
     return <Navigate to="inicio-sesion" />;
   } else if (user && isAuth) {
     console.log('navega a home');
+    return <Navigate to="/" />;
+  } else if (user && isAdmin === user.rol && !isUser) {
+    console.log('retorna admin');
+    return <Outlet />;
+  } else if (user && isAdmin !== user.rol && !isUser) {
+    console.log('isAdmin es:', isAdmin, 'user.rol es: ', user.rol);
     return <Navigate to="/" />;
   } else {
     console.log('retorna outlet');
