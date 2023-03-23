@@ -33,6 +33,11 @@ const Carrito = () => {
     /* setCompra(carrito); */
   };
 
+  const cleanCart = () => {
+    setCarrito([]);
+    sessionStorage.removeItem('carrito');
+  };
+
   return (
     <div>
       <h1>Carrito</h1>
@@ -43,6 +48,7 @@ const Carrito = () => {
           ))}
           <h2>{precioTotal}</h2>
           <input type="button" onClick={handleClick} value="Comprar" />
+          <input type="button" onClick={cleanCart} value="Limpiar carrito" />
         </>
       ) : (
         <h1>No hay ningun producto</h1>
