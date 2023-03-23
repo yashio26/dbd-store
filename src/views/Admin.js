@@ -145,6 +145,11 @@ const Admin = () => {
     }
   };
 
+  const handleClick = () => {
+    setUpdateChange(initialUpdate);
+    setProductToEdit(null);
+  };
+
   return (
     <div>
       <h1>Panel de administrador</h1>
@@ -224,21 +229,23 @@ const Admin = () => {
       </div>
       <h2>Actualizar producto</h2>
       <div>
-        <form
-          onSubmit={handleUpdSubmit}
-          className={productToEdit && 'disabled'}
-        >
-          <label>Inserte ID del producto.</label>
-          <input
-            required
-            type="text"
-            name="id"
-            value={updateChange.id}
-            onChange={handleUpdChange}
-          />
-          {productToEdit && (
+        {productToEdit && (
+          <button onClick={handleClick}>Buscar otro producto</button>
+        )}
+        <form onSubmit={handleUpdSubmit}>
+          {!productToEdit ? (
             <>
-              <hr />
+              <label>Inserte ID del producto.</label>
+              <input
+                required
+                type="text"
+                name="id"
+                value={updateChange.id}
+                onChange={handleUpdChange}
+              />
+            </>
+          ) : (
+            <>
               <label>Producto</label>
               <input
                 required
