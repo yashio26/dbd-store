@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
+import UserContext from '../context/UserContext';
 
 const formularioDeContacto = {
-  user: '',
-  description: '',
-  email: '',
+  descripcion: '',
 };
 
 const SobreNosotros = () => {
-  const [datosContacto, setDatosContacto] = useState(formularioDeContacto);
+  const { user } = useContext(UserContext);
+
+  const [consulta, setConsulta] = useState(formularioDeContacto);
 
   const [contacto, setContacto] = useState('');
 
   const handleOnChange = (e) => {
     const { value, name } = e.target;
-    setDatosContacto({ ...datosContacto, [name]: value });
+    setConsulta({ ...consulta, [name]: value });
   };
   const onSubmit = async (e) => {
     e.preventDefault();
     const docRef = await addDoc(collection(db, 'contacto'), {
-      contacto: datosContacto,
+      ...consulta,
+      usuario: user.usuario,
+      email: user.email,
     });
     setContacto(docRef);
-    setDatosContacto(formularioDeContacto);
+    setConsulta(formularioDeContacto);
   };
 
   return (
@@ -60,31 +63,13 @@ const SobreNosotros = () => {
           </>
         ) : (
           <form onSubmit={onSubmit}>
-            <label>Usuario</label>
-            <input
-              required
-              type="text"
-              placeholder="Usuario"
-              value={datosContacto.user}
-              name="user"
-              onChange={handleOnChange}
-            />
-            <label>Email</label>
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              value={datosContacto.email}
-              name="email"
-              onChange={handleOnChange}
-            />
             <div>
               <label>¿Que quieres consultar?</label>
               <textarea
                 required
                 placeholder="Descripcion"
-                value={datosContacto.description}
-                name="description"
+                value={consulta.descripcion}
+                name="descripcion"
                 onChange={handleOnChange}
               />
             </div>
