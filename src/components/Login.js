@@ -14,12 +14,12 @@ const Login = () => {
   const navigate = useNavigate();
 
   /* useEffect(() => {
-    const session = sessionStorage.getItem('usuario');
-    if (session) {
-      console.log('hay datos en session');
-      setUser(session);
-    } else console.log('no hay datos en session');
-  }, [setUser]); */
+      const session = sessionStorage.getItem('usuario');
+      if (session) {
+        console.log('hay datos en session');
+        setUser(session);
+      } else console.log('no hay datos en session');
+    }, [setUser]); */
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -66,7 +66,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <>
       <div style={{ backgroundColor: 'gray' }}>
         <h1>Inicio de sesión</h1>
         <form onSubmit={handleSubmit}>
@@ -93,7 +93,7 @@ const Login = () => {
         </form>
       </div>
       <Link to={'/registro'}>¿No estás registrado?</Link>
-    </div>
+    </>
   );
 };
 

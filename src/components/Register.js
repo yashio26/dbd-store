@@ -1,5 +1,5 @@
-import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import React, { useContext, useState } from 'react';
+import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { Link, useNavigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import { db } from '../firebase/firebaseConfig';
@@ -21,19 +21,19 @@ const Register = () => {
   const [error, setError] = useState(false);
 
   /* useEffect(() => {
-    const session = sessionStorage.getItem('usuario');
-    if (session) {
-      console.log('hay datos en session');
-      setUser(session);
-    } else console.log('no hay datos en session');
-  }, [setUser]); */
+      const session = sessionStorage.getItem('usuario');
+      if (session) {
+        console.log('hay datos en session');
+        setUser(session);
+      } else console.log('no hay datos en session');
+    }, [setUser]); */
 
   const getUser = async () => {
     const docs = [];
     const q = /* query( */ collection(db, 'usuarios'); /* ,
-      where('usuario', '==', register.usuario),
-      where('email', '==', register.email)
-    ) */
+        where('usuario', '==', register.usuario),
+        where('email', '==', register.email)
+      ) */
 
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -88,7 +88,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Registro</h1>
       <form onSubmit={handleSubmit} style={{ backgroundColor: 'gray' }}>
         <label>Nombre</label>
@@ -129,14 +129,14 @@ const Register = () => {
         />
         <hr />
         {/* <label>Confirmar contraseña</label>
-        <input /> */}
+    <input /> */}
         <button>Registrarse</button>
       </form>
       <p>
         ¿Ya tienes una cuenta?{' '}
         <Link to={'/inicio-sesion'}>Inicia sesión aquí.</Link>
       </p>
-    </div>
+    </>
   );
 };
 

@@ -4,9 +4,9 @@ import Header from './components/Header';
 import NavBar from './components/NavBar/NavBar';
 import SobreNosotros from './views/SobreNosotros';
 import Home from './views/Home';
-import Login from './views/Login';
+import InicioSesion from './views/InicioSesion';
 import Productos from './views/Productos';
-import Register from './views/Register';
+import Registro from './views/Registro';
 import ProductDetail from './views/ProductDetail';
 import Carrito from './views/Carrito';
 import { CartProvider } from './context/CartContext';
@@ -29,8 +29,8 @@ function App() {
             <NavBar />
             <Routes>
               <Route element={<ProtectedRoute isAuth={true} />}>
-                <Route path="/registro" element={<Register />} />
-                <Route path="/inicio-sesion" element={<Login />} />
+                <Route path="/registro" element={<Registro />} />
+                <Route path="/inicio-sesion" element={<InicioSesion />} />
               </Route>
               <Route element={<ProtectedRoute isUser={true} />}>
                 <Route path="/sobre-nosotros" element={<SobreNosotros />} />
