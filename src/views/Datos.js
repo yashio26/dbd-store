@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import AccountData from '../components/AccountData';
 
 const Datos = () => {
   return (
     <div>
-      <h1>Datos</h1>
-      <Link to={'/datos/compras'}>Ver mis compras</Link>
+      <AccountData />
     </div>
   );
 };

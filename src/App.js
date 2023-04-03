@@ -15,7 +15,7 @@ import Datos from './views/Datos';
 import { UserProvider } from './context/UserContext';
 import Compras from './views/Compras';
 import CompraDetail from './views/CompraDetail';
-import Admin from './views/Admin';
+import Panel from './views/Panel';
 
 function App() {
   /* const [user, setUser] = useState(null); */
@@ -44,7 +44,7 @@ function App() {
                 <Route path="/" element={<Home />} />
               </Route>
               <Route element={<ProtectedRoute isAdmin="admin" />}>
-                <Route path="/admin" element={<Admin />} />
+                <Route path="/panel" element={<Panel />} />
               </Route>
             </Routes>
           </div>

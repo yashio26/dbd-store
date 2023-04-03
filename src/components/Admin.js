@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   addDoc,
   collection,
@@ -9,7 +10,6 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import React, { useState } from 'react';
 import { db } from '../firebase/firebaseConfig';
 
 const initialProduct = {
@@ -137,8 +137,8 @@ const Admin = () => {
         setProductToEdit(true);
         setUpdateChange(productExist);
         /* await updateDoc(doc(db, 'tienda', updateChange.id), {
-        stock: 0,
-      }); */
+              stock: 0,
+            }); */
       } else {
         console.log(`No se encontró el producto.`);
       }
@@ -151,7 +151,7 @@ const Admin = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Panel de administrador</h1>
       <h2>Agregar producto</h2>
       <div>
@@ -307,7 +307,7 @@ const Admin = () => {
           </button>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
