@@ -35,8 +35,8 @@ const ProductDetail = () => {
       /* const changeQuantity = (productoEnCarrito.quantity = counter); */
       /* const updateQuantity = { ...producto, cantidad: counter }; */
       /* if (carrito.includes(productoEnCarrito)) {
-        productoEnCarrito.cantidad = counter;
-      } */
+            productoEnCarrito.cantidad = counter;
+          } */
       /* setCarrito([...carrito, (productoEnCarrito.cantidad = counter)]); */
     } else {
       const total = counter * producto.precio;
@@ -84,7 +84,7 @@ const ProductDetail = () => {
   /* console.log(producto); */
 
   return (
-    <div>
+    <>
       <h1>{producto.producto}</h1>
       <img src={producto.img} alt={producto.producto} />
       {producto.stock < 1 ? (
@@ -103,7 +103,7 @@ const ProductDetail = () => {
           <button onClick={addProduct}>agregar producto</button>
         </>
       )}
-    </div>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ import Home from './views/Home';
 import InicioSesion from './views/InicioSesion';
 import Productos from './views/Productos';
 import Registro from './views/Registro';
-import ProductDetail from './views/ProductDetail';
+import ProductoId from './views/ProductoId';
 import Carrito from './views/Carrito';
 import { CartProvider } from './context/CartContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -34,7 +34,7 @@ function App() {
               </Route>
               <Route element={<ProtectedRoute isUser={true} />}>
                 <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-                <Route path="/producto/:id" element={<ProductDetail />} />
+                <Route path="/producto/:id" element={<ProductoId />} />
                 <Route path="/productos" element={<Productos />} />
                 <Route path="/productos/:categoria" element={<Productos />} />
                 <Route path="/datos" element={<Datos />} />
