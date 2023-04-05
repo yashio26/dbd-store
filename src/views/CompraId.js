@@ -1,7 +1,7 @@
 import React from 'react';
 import PurchaseDetail from '../components/PurchaseDetail';
 
-const CompraDetail = () => {
+const CompraId = () => {
   return (
     <div>
       <PurchaseDetail />
@@ -9,4 +9,4 @@ const CompraDetail = () => {
   );
 };
 
-export default CompraDetail;
+export default CompraId;

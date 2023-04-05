@@ -14,7 +14,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Datos from './views/Datos';
 import { UserProvider } from './context/UserContext';
 import Compras from './views/Compras';
-import CompraDetail from './views/CompraDetail';
+import CompraId from './views/CompraId';
 import Panel from './views/Panel';
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
                 <Route path="/productos/:categoria" element={<Productos />} />
                 <Route path="/datos" element={<Datos />} />
                 <Route path="/datos/compras" element={<Compras />} />
-                <Route path="/datos/compra/:id" element={<CompraDetail />} />
+                <Route path="/datos/compra/:id" element={<CompraId />} />
                 <Route path="/carrito" element={<Carrito />} />
                 <Route path="/" element={<Home />} />
               </Route>
