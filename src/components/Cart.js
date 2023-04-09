@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItemContainer from './CartItemContainer';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ carrito, precioTotal, handleClick, cleanCart }) => {
   return (
@@ -11,8 +12,11 @@ const Cart = ({ carrito, precioTotal, handleClick, cleanCart }) => {
             <CartItemContainer key={carro.id} info={carro} />
           ))}
           <h2>{precioTotal}</h2>
-          <input type="button" onClick={handleClick} value="Comprar" />
           <input type="button" onClick={cleanCart} value="Limpiar carrito" />
+          <input type="button" onClick={handleClick} value="Comprar" />
+          <Link to={'/productos'}>
+            <button>Agregar productos</button>
+          </Link>
         </>
       ) : (
         <h1>No hay ningun producto</h1>

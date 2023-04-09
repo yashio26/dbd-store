@@ -73,12 +73,14 @@ const RegisterContainer = () => {
             usuario: register.usuario,
             email: register.email,
             rol: 'user',
+            nombre: register.nombre,
           })
         );
         setUser({
           usuario: register.usuario,
           email: register.email,
           rol: 'user',
+          nombre: register.nombre,
         });
         setError(false);
         setRegister(initialRegister);

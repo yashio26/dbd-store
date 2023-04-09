@@ -38,8 +38,8 @@ const LoginContainer = () => {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      const { email, rol, usuario } = doc.data();
-      docs = { email, rol, usuario };
+      const { email, rol, usuario, nombre } = doc.data();
+      docs = { email, rol, usuario, nombre };
     });
     return docs;
   };
@@ -56,6 +56,7 @@ const LoginContainer = () => {
           usuario: user.usuario,
           email: user.email,
           rol: user.rol,
+          nombre: user.nombre,
         })
       );
       setUser(user);
