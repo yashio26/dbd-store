@@ -1,21 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import CartContext from '../context/CartContext';
-import UserContext from '../context/UserContext';
 
-const Header = () => {
-  const { user, setUser } = useContext(UserContext);
-  const { setCarrito } = useContext(CartContext);
-
-  const login = () => {
-    if (!!user) {
-      sessionStorage.removeItem('carrito');
-      sessionStorage.removeItem('usuario');
-      setCarrito([]);
-      setUser(null);
-    } else setUser(true);
-  };
-
+const Header = ({ user, login }) => {
   return (
     <div className="Header">
       <Link to="/" className="Link">

@@ -1,10 +1,10 @@
 import React from 'react';
-import About from '../components/About';
+import AboutContainer from '../components/AboutContainer';
 
 const SobreNosotros = () => {
   return (
     <div className="SobreNosotros">
-      <About />
+      <AboutContainer />
     </div>
   );
 };

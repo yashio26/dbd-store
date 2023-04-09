@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import Card from './Card';
+import { useParams } from 'react-router-dom';
+import Products from './Products';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
-const ItemList = ({ categoria, capitalizeWord }) => {
+const ProductsContainer = () => {
+  const { categoria } = useParams();
+
+  const capitalizeWord = (word) => {
+    return word[0].toUpperCase() + word.slice(1);
+  };
+
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
+    const capitalizeWordd = (word) => {
+      return word[0].toUpperCase() + word.slice(1);
+    };
     if (!categoria) {
       const traerProductos = async () => {
         const docs = [];
@@ -23,7 +33,7 @@ const ItemList = ({ categoria, capitalizeWord }) => {
         const docs = [];
         const q = query(
           collection(db, 'tienda'),
-          where('categoria', '==', capitalizeWord(categoria))
+          where('categoria', '==', capitalizeWordd(categoria))
         );
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
@@ -34,17 +44,17 @@ const ItemList = ({ categoria, capitalizeWord }) => {
       };
       traerProductos();
     }
-  }, [categoria, capitalizeWord]);
+  }, [categoria]);
 
   return (
     <>
-      {productos.length > 0 ? (
-        productos.map((card) => <Card key={card.id} info={card} />)
-      ) : (
-        <p>no hay cards</p>
-      )}
+      <Products
+        categoria={categoria}
+        capitalizeWord={capitalizeWord}
+        productos={productos}
+      />
     </>
   );
 };
 
-export default ItemList;
+export default ProductsContainer;

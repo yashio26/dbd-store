@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from '../components/Login';
+import LoginContainer from '../components/LoginContainer';
 
 const InicioSesion = () => {
   return (
     <div>
-      <Login />
+      <LoginContainer />
     </div>
   );
 };

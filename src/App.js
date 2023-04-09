@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import HeaderContainer from './components/HeaderContainer';
 import NavBar from './components/NavBar';
 import SobreNosotros from './views/SobreNosotros';
 import Home from './views/Home';
@@ -25,7 +25,7 @@ function App() {
       <UserProvider>
         <CartProvider>
           <div className="App">
-            <Header />
+            <HeaderContainer />
             <NavBar />
             <Routes>
               <Route element={<ProtectedRoute isAuth={true} />}>

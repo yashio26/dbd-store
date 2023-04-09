@@ -1,10 +1,10 @@
 import React from 'react';
-import Register from '../components/Register';
+import RegisterContainer from '../components/RegisterContainer';
 
 const Registro = () => {
   return (
     <div>
-      <Register />
+      <RegisterContainer />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
-import PurchaseDetail from '../components/PurchaseDetail';
+import PurchaseDetailContainer from '../components/PurchaseDetailContainer';
 
 const CompraId = () => {
   return (
     <div>
-      <PurchaseDetail />
+      <PurchaseDetailContainer />
     </div>
   );
 };

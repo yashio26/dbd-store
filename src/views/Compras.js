@@ -1,10 +1,10 @@
 import React from 'react';
-import Purchases from '../components/Purchases';
+import PurchasesContainer from '../components/PurchasesContainer';
 
 const Compras = () => {
   return (
     <div>
-      <Purchases />
+      <PurchasesContainer />
     </div>
   );
 };

@@ -1,19 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import ItemList from './ItemList';
+import CardContainer from './CardContainer';
 
-const Products = () => {
-  const { categoria } = useParams();
-
-  const capitalizeWord = (word) => {
-    return word[0].toUpperCase() + word.slice(1);
-  };
-
+const Products = ({ categoria, capitalizeWord, productos }) => {
   return (
-    <>
+    <div>
       {!categoria ? <h1>Productos</h1> : <h1>{capitalizeWord(categoria)}</h1>}
-      <ItemList categoria={categoria} capitalizeWord={capitalizeWord} />
-    </>
+      {productos.length > 0 ? (
+        productos.map((card) => <CardContainer key={card.id} info={card} />)
+      ) : (
+        <p>no hay cards</p>
+      )}
+    </div>
   );
 };
 

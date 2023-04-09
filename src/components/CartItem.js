@@ -1,17 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import CartContext from '../context/CartContext';
 
-const CartItem = ({ info }) => {
-  const { carrito, setCarrito } = useContext(CartContext);
-
-  const deleteProduct = () => {
-    const deleteProductInCart = carrito.filter((el) => el.id !== info.id);
-    setCarrito(deleteProductInCart);
-    sessionStorage.setItem('carrito', JSON.stringify(deleteProductInCart));
-    console.log(deleteProductInCart);
-  };
-
+const CartItem = ({ info, deleteProduct }) => {
   return (
     <div>
       <h1>{info.producto}</h1>

@@ -1,10 +1,10 @@
 import React from 'react';
-import ProductDetail from '../components/ProductDetail';
+import ProductDetailContainer from '../components/ProductDetailContainer';
 
 const ProductoId = () => {
   return (
     <div>
-      <ProductDetail />
+      <ProductDetailContainer />
     </div>
   );
 };

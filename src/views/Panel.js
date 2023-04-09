@@ -1,10 +1,10 @@
 import React from 'react';
-import Admin from '../components/Admin';
+import AdminContainer from '../components/AdminContainer';
 
 const Panel = () => {
   return (
     <div>
-      <Admin />
+      <AdminContainer />
     </div>
   );
 };

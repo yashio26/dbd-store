@@ -1,36 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {
-  collection,
-  documentId,
-  getDocs,
-  query,
-  where,
-} from 'firebase/firestore';
-import { useParams } from 'react-router-dom';
-import UserContext from '../context/UserContext';
-import { db } from '../firebase/firebaseConfig';
+import React from 'react';
 
-const PurchaseDetail = () => {
-  const { id } = useParams();
-
-  const { comprasHechas } = useContext(UserContext);
-
-  const [detalle, setDetalle] = useState(null);
-
-  useEffect(() => {
-    const traerProductos = async () => {
-      const querySnapshot = await getDocs(
-        query(collection(db, 'probandoCompra'), where(documentId(), '==', id))
-      );
-      querySnapshot.forEach((doc) => {
-        setDetalle({ productos: doc.data().productos, id: doc.id });
-      });
-    };
-    traerProductos();
-  }, [comprasHechas, id]);
-
+const PurchaseDetail = ({ id, detalle }) => {
   return (
-    <>
+    <div>
       <h1>Compra</h1>
       <p>N° de compra: {id}</p>
       {detalle
@@ -46,7 +18,7 @@ const PurchaseDetail = () => {
             </div>
           ))
         : 'Esperando datos...'}
-    </>
+    </div>
   );
 };
 
