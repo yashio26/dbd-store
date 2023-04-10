@@ -15,11 +15,11 @@ const Purchases = ({ comprasHechas }) => {
               {el.productos.map((prod) => {
                 return (
                   <div key={prod.id}>
-                    <h1 key={prod.id}>{prod.producto}</h1>
-                    <h2>{el.fecha}</h2>
+                    <h1>{prod.producto}</h1>
                   </div>
                 );
               })}
+              <h2>{el.fecha}</h2>
               <Link to={`/datos/compra/${el.id}`}>
                 <button>Ver compra</button>
               </Link>
