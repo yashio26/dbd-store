@@ -12,15 +12,20 @@ const PurchasesContainer = () => {
       let docs = [];
       const q = query(
         collection(db, 'probandoCompra'),
-        where('comprador.usuario', '==', user.usuario),
-        orderBy('fecha', 'desc')
+        where('comprador.usuario', '==', user.usuario)
       );
 
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        docs.push({ ...doc.data(), id: doc.id });
+        const dateString = doc.data().fecha;
+        const [datePart, timePart] = dateString.split(',');
+        const [day, month, year] = datePart.split('/');
+        const [hour, minute, second] = timePart.split(':');
+        const date = new Date(year, month - 1, day, hour, minute, second);
+        docs.push({ ...doc.data(), id: doc.id, fecha: date });
       });
+      docs.sort((a, b) => b.fecha - a.fecha);
       setComprasHechas(docs);
     };
     getUser();

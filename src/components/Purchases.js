@@ -19,7 +19,7 @@ const Purchases = ({ comprasHechas }) => {
                   </div>
                 );
               })}
-              <h2>{el.fecha}</h2>
+              <h2>{el.fecha.toLocaleString()}</h2>
               <Link to={`/datos/compra/${el.id}`}>
                 <button>Ver compra</button>
               </Link>

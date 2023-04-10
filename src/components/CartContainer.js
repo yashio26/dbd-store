@@ -28,6 +28,7 @@ const CartContainer = () => {
       total: precioTotal,
     });
     setCarrito([]);
+    sessionStorage.removeItem('carrito');
     console.log('Compra realizada, ', docRef.id);
     navigate(`/datos/compra/${docRef.id}`);
     /* setCompra(carrito); */
