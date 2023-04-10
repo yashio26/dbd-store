@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
 import UserContext from '../context/UserContext';
 import { db } from '../firebase/firebaseConfig';
 import Purchases from './Purchases';
@@ -12,7 +12,8 @@ const PurchasesContainer = () => {
       let docs = [];
       const q = query(
         collection(db, 'probandoCompra'),
-        where('comprador.usuario', '==', user.usuario)
+        where('comprador.usuario', '==', user.usuario),
+        orderBy('fecha', 'desc')
       );
 
       const querySnapshot = await getDocs(q);
