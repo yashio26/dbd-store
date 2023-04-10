@@ -23,7 +23,7 @@ const CartContainer = () => {
     console.log(user);
     const docRef = await addDoc(collection(db, 'probandoCompra'), {
       comprador: { usuario: user.usuario, email: user.email },
-      fecha: new Date().toLocaleString(),
+      fecha: new Date().toISOString(),
       productos: carrito,
       total: precioTotal,
     });
