@@ -16,6 +16,7 @@ import { UserProvider } from './context/UserContext';
 import Compras from './views/Compras';
 import CompraId from './views/CompraId';
 import Panel from './views/Panel';
+import Footer from './components/Footer';
 
 function App() {
   /* const [user, setUser] = useState(null); */
@@ -25,28 +26,35 @@ function App() {
       <UserProvider>
         <CartProvider>
           <div className="App">
-            <HeaderContainer />
-            <NavBar />
-            <Routes>
-              <Route element={<ProtectedRoute isAuth={true} />}>
-                <Route path="/registro" element={<Registro />} />
-                <Route path="/inicio-sesion" element={<InicioSesion />} />
-              </Route>
-              <Route element={<ProtectedRoute isUser={true} />}>
-                <Route path="/sobre-nosotros" element={<SobreNosotros />} />
-                <Route path="/producto/:id" element={<ProductoId />} />
-                <Route path="/productos" element={<Productos />} />
-                <Route path="/productos/:categoria" element={<Productos />} />
-                <Route path="/datos" element={<Datos />} />
-                <Route path="/datos/compras" element={<Compras />} />
-                <Route path="/datos/compra/:id" element={<CompraId />} />
-                <Route path="/carrito" element={<Carrito />} />
-                <Route path="/" element={<Home />} />
-              </Route>
-              <Route element={<ProtectedRoute isAdmin="admin" />}>
-                <Route path="/panel" element={<Panel />} />
-              </Route>
-            </Routes>
+            <header>
+              <HeaderContainer />
+              <NavBar />
+            </header>
+            <main>
+              <Routes>
+                <Route element={<ProtectedRoute isAuth={true} />}>
+                  <Route path="/registro" element={<Registro />} />
+                  <Route path="/inicio-sesion" element={<InicioSesion />} />
+                </Route>
+                <Route element={<ProtectedRoute isUser={true} />}>
+                  <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+                  <Route path="/producto/:id" element={<ProductoId />} />
+                  <Route path="/productos" element={<Productos />} />
+                  <Route path="/productos/:categoria" element={<Productos />} />
+                  <Route path="/datos" element={<Datos />} />
+                  <Route path="/datos/compras" element={<Compras />} />
+                  <Route path="/datos/compra/:id" element={<CompraId />} />
+                  <Route path="/carrito" element={<Carrito />} />
+                  <Route path="/" element={<Home />} />
+                </Route>
+                <Route element={<ProtectedRoute isAdmin="admin" />}>
+                  <Route path="/panel" element={<Panel />} />
+                </Route>
+              </Routes>
+            </main>
+            <footer>
+              <Footer />
+            </footer>
           </div>
         </CartProvider>
       </UserProvider>
