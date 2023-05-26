@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/login.css';
 
 const Login = ({ handleSubmit, login, handleChange }) => {
   return (
-    <div>
-      <div style={{ backgroundColor: 'gray' }}>
-        <h1>Inicio de sesión</h1>
-        <form onSubmit={handleSubmit}>
+    <div className="loginn">
+      <h1>Inicio de sesión</h1>
+      <div>
+        <form onSubmit={handleSubmit} className="loginn__form">
           <label>Usuario</label>
           <input
             required
@@ -15,7 +16,6 @@ const Login = ({ handleSubmit, login, handleChange }) => {
             value={login.usuario}
             onChange={handleChange}
           />
-          <hr />
           <label>Contraseña</label>
           <input
             required
@@ -24,9 +24,7 @@ const Login = ({ handleSubmit, login, handleChange }) => {
             value={login.contraseña}
             onChange={handleChange}
           />
-          <hr />
           <button>Iniciar sesión</button>
-          <hr />
         </form>
       </div>
       <Link to={'/registro'}>¿No estás registrado?</Link>
