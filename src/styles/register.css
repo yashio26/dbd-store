@@ -1,12 +1,19 @@
 .register {
-  min-height: 85vh;
+  min-height: 80vh;
+  background: linear-gradient(
+    to left,
+    rgb(58, 58, 58),
+    33%,
+    rgb(73, 73, 73) 50%
+  );
 }
 
 .registerr {
-  background-color: rgb(255, 205, 205);
-  color: black;
-  border-right: thin solid gray;
-  height: 85vh;
+  /* background-color: rgb(255, 205, 205); */
+  background-color: rgb(73, 73, 73);
+  color: white;
+  /* border-right: thin solid gray; */
+  height: 80vh;
   width: 50vw;
   display: flex;
   flex-direction: column;
@@ -19,8 +26,10 @@
 }
 
 .register__form {
-  background-color: rgb(255, 193, 193);
-  border: thin solid rgb(255, 162, 162);
+  /* background-color: rgb(255, 193, 193); */
+  background-color: rgb(58, 58, 58);
+  /* border: thin solid rgb(255, 162, 162); */
+  border: thin solid rgb(53, 53, 53);
   width: 40vw;
   height: 40vh;
   display: flex;

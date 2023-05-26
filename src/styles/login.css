@@ -3,15 +3,21 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  min-height: 85vh;
+  min-height: 80vh;
+  background: linear-gradient(
+    to right,
+    rgb(58, 58, 58),
+    33%,
+    rgb(73, 73, 73) 50%
+  );
 }
-
 .loginn {
-  background-color: rgb(255, 205, 205);
-  color: black;
-  border-left: thin solid rgb(158, 158, 158);
+  /*   background-color: rgb(255, 205, 205); */
+  background-color: rgb(73, 73, 73);
+  color: white;
+  /* border-left: thin solid rgb(158, 158, 158); */
   width: 50vw;
-  height: 85vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -35,8 +41,9 @@
 }
 
 .loginn__form {
-  background-color: rgb(255, 193, 193);
-  border: thin solid rgb(255, 162, 162);
+  background-color: rgb(58, 58, 58);
+  /* border: thin solid rgb(255, 162, 162); */
+  border: thin solid rgb(53, 53, 53);
   height: 70%;
   width: 40vw;
   margin: 1rem;

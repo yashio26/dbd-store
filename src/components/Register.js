@@ -15,7 +15,6 @@ const Register = ({ handleSubmit, handleChange, register, error }) => {
           name="nombre"
           value={register.nombre}
         />
-        <hr />
         <label>Correo electronico</label>
         <input
           required
@@ -24,7 +23,6 @@ const Register = ({ handleSubmit, handleChange, register, error }) => {
           name="email"
           value={register.email}
         />
-        <hr />
         <label>Nombre de usuario</label>
         <input
           required
@@ -34,7 +32,6 @@ const Register = ({ handleSubmit, handleChange, register, error }) => {
           value={register.usuario}
         />
         {error ? <p>Nombre de usuario en uso.</p> : null}
-        <hr />
         <label>Contraseña</label>
         <input
           required
@@ -43,7 +40,6 @@ const Register = ({ handleSubmit, handleChange, register, error }) => {
           name="contraseña"
           value={register.contraseña}
         />
-        <hr />
         {/* <label>Confirmar contraseña</label>
 <input /> */}
         <button>Registrarse</button>
