@@ -1,0 +1,35 @@
+.products {
+  display: flex;
+}
+
+.productss {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.productss div {
+  display: flex;
+  flex-direction: row;
+}
+
+.products__filter {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.products__card {
+  width: 70%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.products__card div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0.5rem;
+}

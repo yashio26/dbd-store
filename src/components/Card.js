@@ -4,6 +4,8 @@ const Card = ({ img, producto, handleClick }) => {
   return (
     <div
       style={{
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: 'grey',
         width: '15rem',
         border: '1px solid white',

@@ -3,7 +3,7 @@ import ProductsContainer from '../components/ProductsContainer';
 
 const Productos = () => {
   return (
-    <div>
+    <div className="products">
       <ProductsContainer />
     </div>
   );
