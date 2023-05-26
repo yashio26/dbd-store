@@ -1,26 +1,13 @@
 import React from 'react';
+import '../styles/card.css';
 
 const Card = ({ img, producto, handleClick }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: 'grey',
-        width: '15rem',
-        border: '1px solid white',
-      }}
-    >
-      <img
-        src={img}
-        alt="hl"
-        style={{ minHeight: '12rem', backgroundColor: 'red', margin: 0 }}
-        width="100%"
-        height="12rem"
-      />
+    <section className="card">
+      <img src={img} alt="product-img" />
       <p>{producto}</p>
-      <button onClick={handleClick}>ver mas</button>
-    </div>
+      <button onClick={handleClick}>Ver detalles</button>
+    </section>
   );
 };
 

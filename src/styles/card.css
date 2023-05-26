@@ -1,0 +1,25 @@
+.card {
+  background-color: rgb(53, 53, 53);
+  color: white;
+  border: 1px solid white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 20rem;
+  width: 14rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  height: 15rem;
+  background: linear-gradient(rgb(78, 78, 78), 80%, rgb(53, 53, 53));
+}
+
+.card p {
+  height: 3rem;
+}
+
+.card button {
+  height: 2rem;
+  color: black;
+}
