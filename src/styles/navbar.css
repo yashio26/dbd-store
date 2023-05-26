@@ -1,0 +1,19 @@
+nav {
+  background-color: rgb(194, 18, 18);
+  height: 5vh;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+nav ul li {
+  color: inherit;
+  list-style-type: none;
+}

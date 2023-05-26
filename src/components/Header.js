@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Header = ({ user, login }) => {
   return (
-    <div className="Header">
+    <div className="header">
       <Link to="/" className="Link">
         <h1>DBDStore</h1>
       </Link>
       <div>
-        <input placeholder="buscador"></input>
+        <input placeholder="buscador" className="header-search" />
         {user ? (
           <Link to={'/datos'}>
             <p>Mi cuenta</p>

@@ -1,0 +1,30 @@
+.header {
+  background-color: rgb(250, 96, 96);
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 10vh;
+}
+
+.header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.header h1 {
+  color: rgb(0, 0, 0);
+}
+
+.header :first-child {
+  text-decoration: none;
+}
+
+.header-search {
+  height: 2vw;
+  width: 30vh;
+}

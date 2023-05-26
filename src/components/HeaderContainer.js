@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import CartContext from '../context/CartContext';
 import UserContext from '../context/UserContext';
 import Header from './Header';
+import '../styles/header.css';
 
 const HeaderContainer = () => {
   const { user, setUser } = useContext(UserContext);
