@@ -3,7 +3,7 @@ import AboutContainer from '../components/AboutContainer';
 
 const SobreNosotros = () => {
   return (
-    <div className="SobreNosotros">
+    <div className="sobre-nosotros">
       <AboutContainer />
     </div>
   );

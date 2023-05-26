@@ -1,8 +1,9 @@
 import React from 'react';
+import '../styles/about.css';
 
 const About = ({ contacto, handleOnSubmit, consulta, handleOnChange }) => {
   return (
-    <>
+    <div>
       <h1 className="Titulo">Acerca de DBDStore</h1>
       <p>
         DBDStore es la tienda oficial de Dead By Daylight, en español. Vas a
@@ -23,33 +24,27 @@ const About = ({ contacto, handleOnSubmit, consulta, handleOnChange }) => {
         suena más fácil de lo que es, especialmente con un entorno que cambia
         cada vez que juegas.
       </p>
-      <h2>Contacto</h2>
-      <div className="FormularioDeContacto">
+      <section className="about__form">
+        <h2>Contacto</h2>
         {contacto ? (
           <>
             <p>¡Los datos de contacto fueron enviados correctamente!</p>
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/dbd-latino.appspot.com/o/dbd-game.gif?alt=media&token=af15ede5-92da-4dd6-815a-bba017f095b0"
-              alt="Logo-Dead-By-Daylight"
-            />
           </>
         ) : (
           <form onSubmit={handleOnSubmit}>
-            <div>
-              <label>¿Que quieres consultar?</label>
-              <textarea
-                required
-                placeholder="Descripcion"
-                value={consulta.descripcion}
-                name="descripcion"
-                onChange={handleOnChange}
-              />
-            </div>
+            <label>¿Que quieres consultar?</label>
+            <textarea
+              required
+              placeholder="Descripcion"
+              value={consulta.descripcion}
+              name="descripcion"
+              onChange={handleOnChange}
+            />
             <button>Enviar</button>
           </form>
         )}
-      </div>
-    </>
+      </section>
+    </div>
   );
 };
 
