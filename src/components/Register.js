@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/register.css';
 
 const Register = ({ handleSubmit, handleChange, register, error }) => {
   return (
-    <div>
+    <div className="registerr">
       <h1>Registro</h1>
-      <form onSubmit={handleSubmit} style={{ backgroundColor: 'gray' }}>
+      <form onSubmit={handleSubmit} className="register__form">
         <label>Nombre</label>
         <input
           required

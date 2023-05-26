@@ -3,7 +3,7 @@ import RegisterContainer from '../components/RegisterContainer';
 
 const Registro = () => {
   return (
-    <div>
+    <div className="register">
       <RegisterContainer />
     </div>
   );
