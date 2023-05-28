@@ -1,0 +1,60 @@
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manage-cart {
+  color: black;
+  height: 10vh;
+  min-width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.manage-cart__add {
+  color: black;
+  height: inherit;
+  width: 33%;
+}
+
+.manage-cart__add a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  text-decoration: none;
+}
+
+.manage-cart__add a button {
+  width: 16vw;
+  height: 6vh;
+}
+
+.manage-cart__buy {
+  height: inherit;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.manage-cart__buy input {
+  width: 16vw;
+  height: 6vh;
+}
+
+.manage-cart__remove {
+  width: inherit;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.manage-cart__remove input {
+  width: 16vw;
+  height: 6vh;
+}
