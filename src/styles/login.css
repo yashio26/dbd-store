@@ -4,16 +4,15 @@
   justify-content: flex-end;
   align-items: center;
   min-height: 80vh;
-  background: linear-gradient(
-    to right,
-    rgb(58, 58, 58),
-    33%,
-    rgb(73, 73, 73) 50%
-  );
+  /* background: linear-gradient(to right, rgb(49, 0, 0), 33%, rgb(77, 0, 0) 50%); */
+  background: linear-gradient(to right, rgb(49, 0, 0), 33%, rgb(77, 0, 0) 50%);
 }
+
+/* background-color: rgb(49, 0, 0); */
 .loginn {
   /*   background-color: rgb(255, 205, 205); */
-  background-color: rgb(73, 73, 73);
+  /* background-color: rgb(73, 73, 73); */
+  /* background-color: rgb(77, 0, 0); */
   color: white;
   /* border-left: thin solid rgb(158, 158, 158); */
   width: 50vw;
@@ -41,9 +40,9 @@
 }
 
 .loginn__form {
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(68, 0, 0);
   /* border: thin solid rgb(255, 162, 162); */
-  border: thin solid rgb(53, 53, 53);
+  border: thin solid rgb(48, 0, 0);
   height: 70%;
   width: 40vw;
   margin: 1rem;
