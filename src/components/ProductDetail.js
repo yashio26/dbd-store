@@ -16,11 +16,11 @@ const ProductDetail = ({
         </section>
         <section className="product-detail__data">
           <h1>{producto.producto}</h1>
+          <p>{producto.descripcion}</p>
           {producto.stock < 1 ? (
             <p>No quedan unidades.</p>
           ) : (
             <>
-              <p>{producto.descripcion}</p>
               <p>${producto.precio}</p>
               <p>{producto.stock} unidades disponibles.</p>
               <section>

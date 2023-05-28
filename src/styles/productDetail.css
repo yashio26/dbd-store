@@ -12,6 +12,9 @@
 .product-detail__img {
   height: 70vh;
   width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .product-detail__data {
