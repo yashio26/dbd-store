@@ -3,7 +3,7 @@ import ProductDetailContainer from '../components/ProductDetailContainer';
 
 const ProductoId = () => {
   return (
-    <div>
+    <div className="product-detail-container">
       <ProductDetailContainer />
     </div>
   );

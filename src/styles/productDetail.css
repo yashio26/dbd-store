@@ -1,0 +1,42 @@
+.product-detail-container {
+  min-height: 80vh;
+}
+
+.product-detail {
+  min-height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-detail__img {
+  height: 70vh;
+  width: 40vw;
+}
+
+.product-detail__data {
+  background-color: rgb(83, 0, 0);
+  border: thin solid rgb(56, 0, 0);
+  min-height: 50vh;
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.product-detail__data section {
+  width: 12vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-detail__data section button {
+  width: 30%;
+  height: 4vh;
+}
+
+.product-detail__data button {
+  height: 6vh;
+  width: 10vw;
+}
