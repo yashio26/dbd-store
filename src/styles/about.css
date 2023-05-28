@@ -1,5 +1,5 @@
 .sobre-nosotros {
-  color: black;
+  color: white;
   display: flex;
   height: 80vh;
   flex-direction: row;
@@ -9,9 +9,10 @@
 }
 
 .sobre-nosotros div {
-  background-color: rgb(255, 205, 205);
+  background-color: rgb(83, 0, 0);
+  border: thin solid rgb(56, 0, 0);
   width: 65%;
-  height: 79vh;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -25,12 +26,18 @@
   align-items: center;
 }
 
-.about__form article {
+.about__form form {
   display: flex;
   flex-direction: column;
 }
 
 .about__form textarea {
-  width: 100%;
+  color: black;
+  width: 30vw;
   height: 10vh;
+  resize: none;
+}
+
+.about__form button {
+  color: black;
 }
