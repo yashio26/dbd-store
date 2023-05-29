@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ user, login }) => {
+const Header = ({ user, login, search, handleChange, handleSubmit }) => {
   return (
     <div className="header">
       <Link to="/" className="Link">
@@ -9,7 +9,14 @@ const Header = ({ user, login }) => {
       </Link>
       {user && (
         <div>
-          <input placeholder="buscador" className="header-search" />
+          <form onSubmit={handleSubmit}>
+            <input
+              placeholder="buscador"
+              value={search}
+              onChange={handleChange}
+              className="header-search"
+            />
+          </form>
           {user ? (
             <Link to={'/datos'}>
               <p>Mi cuenta</p>

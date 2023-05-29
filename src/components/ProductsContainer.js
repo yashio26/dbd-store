@@ -5,7 +5,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
 
 const ProductsContainer = () => {
-  const { categoria } = useParams();
+  const { categoria, nombre } = useParams();
 
   const capitalizeWord = (word) => {
     return word[0].toUpperCase() + word.slice(1);
@@ -25,7 +25,17 @@ const ProductsContainer = () => {
           docs.push({ ...doc.data(), id: doc.id });
           /* return [{ id: doc.id, data: doc.data() }]; */
         });
-        setProductos(docs);
+        if (nombre) {
+          const filter = docs.filter((el) =>
+            el.producto
+              .trim()
+              .toLowerCase()
+              .includes(nombre.trim().toLowerCase())
+          );
+          setProductos(filter);
+        } else {
+          setProductos(docs);
+        }
       };
       traerProductos();
     } else {
@@ -44,7 +54,7 @@ const ProductsContainer = () => {
       };
       traerProductos();
     }
-  }, [categoria]);
+  }, [categoria, nombre]);
 
   return (
     <>

@@ -17,6 +17,7 @@ import Compras from './views/Compras';
 import CompraId from './views/CompraId';
 import Panel from './views/Panel';
 import Footer from './components/Footer';
+import ProductoBusqueda from './views/ProductoBusqueda';
 
 function App() {
   /* const [user, setUser] = useState(null); */
@@ -39,6 +40,10 @@ function App() {
                 <Route element={<ProtectedRoute isUser={true} />}>
                   <Route path="/sobre-nosotros" element={<SobreNosotros />} />
                   <Route path="/producto/:id" element={<ProductoId />} />
+                  <Route
+                    path="/producto/busqueda/:nombre"
+                    element={<ProductoBusqueda />}
+                  />
                   <Route path="/productos" element={<Productos />} />
                   <Route path="/productos/:categoria" element={<Productos />} />
                   <Route path="/datos" element={<Datos />} />
