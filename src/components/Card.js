@@ -4,7 +4,7 @@ import '../styles/card.css';
 const Card = ({ img, producto, handleClick }) => {
   return (
     <section className="card">
-      <img src={img} alt="product-img" />
+      <img src={img} alt={`${producto}-img`} />
       <p>{producto}</p>
       <button onClick={handleClick}>Ver detalles</button>
     </section>

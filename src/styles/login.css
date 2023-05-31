@@ -52,11 +52,11 @@
   justify-content: space-evenly;
 }
 
-/* .loginn__form label {
-  margin: 0.5rem;
+.loginn__form input {
+  color: black;
 }
 
-.loginn__form button {
+/* .loginn__form button {
   margin: 0.5rem;
 }
  */
