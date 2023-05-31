@@ -9,8 +9,10 @@
 }
 
 .sobre-nosotros div {
-  background-color: rgb(83, 0, 0);
+  background: linear-gradient(rgb(78, 78, 78), rgb(53, 53, 53));
+  /* background-color: rgb(83, 0, 0); */
   border: thin solid rgb(56, 0, 0);
+  border-radius: 1vw;
   width: 65%;
   height: 75vh;
   display: flex;
@@ -32,7 +34,10 @@
 }
 
 .about__form textarea {
+  background: linear-gradient(rgb(255, 255, 255), 90%, rgba(83, 0, 0, 0.315));
+
   color: black;
+  border-radius: 0.3vw;
   width: 30vw;
   height: 10vh;
   resize: none;
@@ -40,4 +45,25 @@
 
 .about__form button {
   color: black;
+  border: thin solid white;
+  border-radius: 0.3vw;
+  height: 4vh;
+}
+
+.about__form button:hover {
+  background: linear-gradient(rgb(134, 0, 0), rgb(83, 0, 0));
+  color: white;
+  border-radius: 0.3vw;
+  height: 4vh;
+  transition: color 0.8s;
+  animation: changeAboutButton 0.6s forwards;
+}
+
+@keyframes changeAboutButton {
+  from {
+    background: white;
+  }
+  to {
+    background: linear-gradient(rgb(134, 0, 0), rgb(83, 0, 0));
+  }
 }
