@@ -13,6 +13,17 @@ const ProductsContainer = () => {
 
   const [productos, setProductos] = useState([]);
 
+  const [filtro, setFiltro] = useState('');
+
+  const handleFiltro = (e) => {
+    setFiltro(e.target.value);
+  };
+
+  const productosFiltrados =
+    filtro === ''
+      ? productos
+      : productos.filter((el) => el.categoria === filtro);
+
   useEffect(() => {
     const capitalizeWordd = (word) => {
       return word[0].toUpperCase() + word.slice(1);
@@ -62,6 +73,9 @@ const ProductsContainer = () => {
         categoria={categoria}
         capitalizeWord={capitalizeWord}
         productos={productos}
+        filtro={filtro}
+        handleFiltro={handleFiltro}
+        productosFiltrados={productosFiltrados}
       />
     </>
   );
