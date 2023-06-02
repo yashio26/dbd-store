@@ -32,14 +32,21 @@
   width: 12vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .product-detail__data section button {
+  background-color: rgba(78, 78, 78, 0.603);
+  border: thin solid rgb(78, 78, 78);
+  border-radius: 0.8vw;
   width: 30%;
   height: 4vh;
 }
 
 .product-detail__data button {
+  background-color: rgb(179, 0, 0);
+  border: thin solid rgb(78, 78, 78);
+  border-radius: 0.4vw;
   height: 6vh;
   width: 10vw;
 }
