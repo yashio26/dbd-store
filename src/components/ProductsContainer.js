@@ -15,6 +15,8 @@ const ProductsContainer = () => {
 
   const [filtro, setFiltro] = useState('');
 
+  const [sortProducts, setSortProducts] = useState('');
+
   const handleFiltro = (e) => {
     setFiltro(e.target.value);
   };
@@ -23,6 +25,23 @@ const ProductsContainer = () => {
     filtro === ''
       ? productos
       : productos.filter((el) => el.categoria === filtro);
+
+  const handleSort = (e) => {
+    setSortProducts(e.target.value);
+  };
+
+  const sortBy =
+    sortProducts === ''
+      ? productos
+      : productos.sort((a, b) => {
+          if (sortProducts === 'menor') {
+            return a.precio - b.precio;
+          }
+          if (sortProducts === 'mayor') {
+            return b.precio - a.precio;
+          }
+          return null;
+        });
 
   useEffect(() => {
     const capitalizeWordd = (word) => {
@@ -76,6 +95,9 @@ const ProductsContainer = () => {
         filtro={filtro}
         handleFiltro={handleFiltro}
         productosFiltrados={productosFiltrados}
+        sortProducts={sortProducts}
+        handleSort={handleSort}
+        sortBy={sortBy}
       />
     </>
   );

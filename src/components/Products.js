@@ -9,6 +9,8 @@ const Products = ({
   filtro,
   handleFiltro,
   productosFiltrados,
+  sortProducts,
+  handleSort,
 }) => {
   const productoss = [];
   let categoriasDisponibles = null;
@@ -20,7 +22,7 @@ const Products = ({
   return (
     <div className="productss">
       {!categoria ? <h1>Productos</h1> : <h1>{capitalizeWord(categoria)}</h1>}
-      <div>
+      <div className="divxd">
         <section className="products__filter">
           <h3>Filtros</h3>
           <select value={filtro} onChange={handleFiltro}>
@@ -36,10 +38,14 @@ const Products = ({
           </select>
         </section>
         <section className="products__card">
-          {/* <select value="default">
-            <option value="default">Ordenar</option>
-          </select> */}
-          <div>
+          <div className="sort-by">
+            <select value={sortProducts} onChange={handleSort}>
+              <option value="">Ordenar por...</option>
+              <option value="menor">Menor a mayor precio</option>
+              <option value="mayor">Mayor a menor precio</option>
+            </select>
+          </div>
+          <div className="card-container">
             {productos.length > 0 ? (
               productosFiltrados.map((card) => (
                 <CardContainer key={card.id} info={card} />
