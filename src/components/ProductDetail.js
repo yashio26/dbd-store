@@ -16,24 +16,34 @@ const ProductDetail = ({
         </section>
         <section className="product-detail__data">
           <h1>{producto.producto}</h1>
-          <p>{producto.descripcion}</p>
+          <section className="descripcion-producto">
+            <p>{producto.descripcion}</p>
+          </section>
           {producto.stock < 1 ? (
             <p>No quedan unidades.</p>
           ) : (
             <>
-              <p>${producto.precio}</p>
-              <p>{producto.stock} unidades disponibles.</p>
               <section>
-                <button onClick={addQuantity}>+</button>
+                <p>${producto.precio}</p>
+              </section>
+              <section>
+                <p>{producto.stock} unidades disponibles.</p>
+              </section>
+              <section className="botones-manejo-stock">
+                <button onClick={subtractQuantity}>-</button>
                 <p>
                   {counter} x ${producto.precio}
                 </p>
-                <button onClick={subtractQuantity}>-</button>
+                <button onClick={addQuantity}>+</button>
               </section>
-              <p>
-                <strong>Total: ${counter * producto.precio}</strong>
-              </p>
-              <button onClick={addProduct}>Agregar al carrito</button>
+              <section>
+                <p>
+                  <strong>Total: ${counter * producto.precio}</strong>
+                </p>
+              </section>
+              <section className="boton-agregar-producto">
+                <button onClick={addProduct}>Agregar al carrito</button>
+              </section>
             </>
           )}
         </section>
