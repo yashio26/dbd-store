@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/cartItem.css';
 
-const CartItem = ({ info, deleteProduct }) => {
+const CartItem = ({ info, deleteProduct, classname }) => {
   return (
-    <div className="cart-item">
+    <div className={`cart-item ${classname}`}>
       <section className="cart-item__data">
         <Link to={`/producto/${info.id}`}>
           <p>

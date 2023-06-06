@@ -3,9 +3,17 @@
   border: thin solid rgb(56, 0, 0);
   height: 10vh;
   width: 80vw;
-  margin: 1rem;
+  margin: 0.2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.par {
+  background-color: rgb(53, 53, 53);
+}
+
+.impar {
+  background-color: rgb(78, 78, 78);
 }
 
 .cart-item__data {

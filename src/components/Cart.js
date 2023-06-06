@@ -9,8 +9,12 @@ const Cart = ({ carrito, precioTotal, handleClick, cleanCart }) => {
       <h1>Carrito</h1>
       {carrito.length > 0 ? (
         <>
-          {carrito.map((carro) => (
-            <CartItemContainer key={carro.id} info={carro} />
+          {carrito.map((carro, idx) => (
+            <CartItemContainer
+              key={carro.id}
+              info={carro}
+              classname={idx % 2 === 0 ? 'par' : 'impar'}
+            />
           ))}
           <h2>Total: ${precioTotal}</h2>
           <section className="manage-cart">

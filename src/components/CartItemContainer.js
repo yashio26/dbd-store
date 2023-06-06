@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import CartContext from '../context/CartContext';
 import CartItem from './CartItem';
 
-const CartItemContainer = ({ info }) => {
+const CartItemContainer = ({ info, classname }) => {
   const { carrito, setCarrito } = useContext(CartContext);
 
   const deleteProduct = () => {
@@ -14,7 +14,11 @@ const CartItemContainer = ({ info }) => {
 
   return (
     <>
-      <CartItem info={info} deleteProduct={deleteProduct} />
+      <CartItem
+        info={info}
+        classname={classname}
+        deleteProduct={deleteProduct}
+      />
     </>
   );
 };
