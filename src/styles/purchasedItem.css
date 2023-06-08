@@ -1,0 +1,25 @@
+.purchased-item-container {
+  background-color: blue;
+  height: 100%;
+  width: 98%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.purchased-item {
+  background: rgb(53, 53, 53);
+  background: linear-gradient(to right, rgb(53, 53, 53), rgb(78, 78, 78) 80%);
+  border: thin solid black;
+  height: 18vh;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.purchased-item img {
+  height: 10vh;
+  width: 7vw;
+}
