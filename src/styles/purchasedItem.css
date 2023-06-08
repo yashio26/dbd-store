@@ -1,5 +1,4 @@
 .purchased-item-container {
-  background-color: blue;
   height: 100%;
   width: 98%;
   margin: 1rem;
@@ -15,11 +14,14 @@
   height: 18vh;
   width: 90%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
-.purchased-item img {
+.purchased-item div {
+  width: 25%;
+}
+
+.purchased-item div img {
   height: 10vh;
   width: 7vw;
 }
