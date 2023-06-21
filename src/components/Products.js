@@ -3,8 +3,6 @@ import CardContainer from './CardContainer';
 import '../styles/products.css';
 
 const Products = ({
-  categoria,
-  capitalizeWord,
   productos,
   filtro,
   handleFiltro,
@@ -21,7 +19,7 @@ const Products = ({
   }
   return (
     <div className="productss">
-      {!categoria ? <h1>Productos</h1> : <h1>{capitalizeWord(categoria)}</h1>}
+      <h1>Productos</h1>
       <div className="divxd">
         <section className="products__filter">
           <h3>Filtros</h3>

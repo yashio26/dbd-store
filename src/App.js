@@ -45,7 +45,6 @@ function App() {
                     element={<ProductoBusqueda />}
                   />
                   <Route path="/productos" element={<Productos />} />
-                  <Route path="/productos/:categoria" element={<Productos />} />
                   <Route path="/datos" element={<Datos />} />
                   <Route path="/datos/compras" element={<Compras />} />
                   <Route path="/datos/compra/:id" element={<CompraId />} />
