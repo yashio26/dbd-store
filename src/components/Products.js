@@ -10,12 +10,25 @@ const Products = ({
   sortProducts,
   handleSort,
 }) => {
-  const productoss = [];
   let categoriasDisponibles = null;
+  let filtradosDisponibles = null;
 
   if (productos.length > 0) {
-    productos.forEach((el) => productoss.push(el.categoria));
+    const productoss = [];
+    productosFiltrados.forEach((el) => productoss.push(el.categoria));
     categoriasDisponibles = Array.from(new Set(productoss));
+    const productosFiltro = {};
+    productosFiltrados.forEach((el) => {
+      if (productosFiltro[el.producto]) {
+        productosFiltro[el.producto]++;
+      } else {
+        productosFiltro[el.producto] = 1;
+      }
+    });
+    filtradosDisponibles = Object.keys(productosFiltro).map((producto) => {
+      const cantidad = productosFiltro[producto];
+      return `${producto} (${cantidad})`;
+    });
   }
   return (
     <div className="productss">
@@ -34,6 +47,9 @@ const Products = ({
                 );
               })}
           </select>
+          {productos.length > 0 &&
+            filtro !== '' &&
+            filtradosDisponibles.map((el, idx) => <p key={idx}>{el}</p>)}
         </section>
         <section className="products__card">
           <div className="sort-by">
