@@ -1,10 +1,10 @@
 import React from 'react';
-import AccountData from '../components/AccountData';
+import AccountDataContainer from '../components/AccountDataContainer';
 
 const Datos = () => {
   return (
-    <div>
-      <AccountData />
+    <div className="width-container">
+      <AccountDataContainer />
     </div>
   );
 };
