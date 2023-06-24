@@ -28,9 +28,9 @@ const PurchasesContainer = () => {
   }, [setComprasHechas, user.usuario]);
 
   return (
-    <>
+    <div className="purchases-container">
       <Purchases comprasHechas={comprasHechas} />
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import PurchasedItem from './PurchasedItem';
+import PurchasedDetailItem from './PurchasedDetailItem';
 
 const PurchaseDetail = ({ id, detalle }) => {
   return (
@@ -9,7 +9,7 @@ const PurchaseDetail = ({ id, detalle }) => {
       <div className="purchased-item-container">
         {detalle
           ? detalle.productos.map((el) => (
-              <PurchasedItem key={el.id} product={el} />
+              <PurchasedDetailItem key={el.id} product={el} />
             ))
           : 'Esperando datos...'}
       </div>

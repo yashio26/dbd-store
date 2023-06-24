@@ -3,7 +3,7 @@ import PurchasesContainer from '../components/PurchasesContainer';
 
 const Compras = () => {
   return (
-    <div>
+    <div className="width-container">
       <PurchasesContainer />
     </div>
   );

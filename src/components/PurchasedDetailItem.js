@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/purchasedItem.css';
+import '../styles/purchasedDetailItem.css';
 
-const PurchasedItem = ({ product }) => {
+const PurchasedDetailItem = ({ product }) => {
   return (
     <section className="purchased-item">
       <div className="">
@@ -22,4 +22,4 @@ const PurchasedItem = ({ product }) => {
   );
 };
 
-export default PurchasedItem;
+export default PurchasedDetailItem;
