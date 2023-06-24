@@ -60,7 +60,7 @@ const ProductsContainer = () => {
   }, [nombre]);
 
   return (
-    <>
+    <div className="products-container">
       <Products
         productos={productos}
         filtro={filtro}
@@ -70,7 +70,7 @@ const ProductsContainer = () => {
         handleSort={handleSort}
         sortBy={sortBy}
       />
-    </>
+    </div>
   );
 };
 

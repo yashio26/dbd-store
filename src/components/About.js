@@ -3,7 +3,7 @@ import '../styles/about.css';
 
 const About = ({ contacto, handleOnSubmit, consulta, handleOnChange }) => {
   return (
-    <div>
+    <div className="about">
       <h1 className="Titulo">Acerca de DBDStore</h1>
       <p>
         DBDStore es la tienda oficial de Dead By Daylight, en español. Vas a

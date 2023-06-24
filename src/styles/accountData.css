@@ -1,6 +1,7 @@
 .account-data-container {
   background: linear-gradient(rgb(78, 78, 78), rgb(53, 53, 53));
   border-radius: 1vw;
+  margin: 2.5vh 0;
   height: 75vh;
   width: 70vw;
   display: flex;

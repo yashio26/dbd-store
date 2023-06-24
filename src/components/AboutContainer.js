@@ -31,14 +31,14 @@ const AboutContainer = () => {
   };
 
   return (
-    <>
+    <div className="about-container">
       <About
         contacto={contacto}
         consulta={consulta}
         handleOnChange={handleOnChange}
         handleOnSubmit={handleOnSubmit}
       />
-    </>
+    </div>
   );
 };
 

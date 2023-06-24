@@ -31,9 +31,9 @@ const Products = ({
     });
   }
   return (
-    <div className="productss">
+    <div className="products">
       <h1>Productos</h1>
-      <div className="divxd">
+      <div className="filter-cards">
         <section className="products__filter">
           <h3>Filtros</h3>
           <select value={filtro} onChange={handleFiltro}>
@@ -51,7 +51,7 @@ const Products = ({
             filtro !== '' &&
             filtradosDisponibles.map((el, idx) => <p key={idx}>{el}</p>)}
         </section>
-        <section className="products__card">
+        <section className="products__cards">
           <div className="sort-by">
             <select value={sortProducts} onChange={handleSort}>
               <option value="">Ordenar por...</option>

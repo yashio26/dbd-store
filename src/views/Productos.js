@@ -3,7 +3,7 @@ import ProductsContainer from '../components/ProductsContainer';
 
 const Productos = () => {
   return (
-    <div className="products">
+    <div className="width-container">
       <ProductsContainer />
     </div>
   );

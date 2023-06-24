@@ -3,7 +3,7 @@ import AboutContainer from '../components/AboutContainer';
 
 const SobreNosotros = () => {
   return (
-    <div className="sobre-nosotros">
+    <div className="width-container">
       <AboutContainer />
     </div>
   );
