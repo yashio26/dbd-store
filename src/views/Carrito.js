@@ -3,7 +3,7 @@ import CartContainer from '../components/CartContainer';
 
 const Carrito = () => {
   return (
-    <div className="cart-container">
+    <div className="width-container">
       <CartContainer />
     </div>
   );

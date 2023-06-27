@@ -40,14 +40,14 @@ const CartContainer = () => {
   };
 
   return (
-    <>
+    <div className="cart-container">
       <Cart
         carrito={carrito}
         precioTotal={precioTotal}
         handleClick={handleClick}
         cleanCart={cleanCart}
       />
-    </>
+    </div>
   );
 };
 
