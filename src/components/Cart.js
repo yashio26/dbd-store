@@ -5,17 +5,19 @@ import '../styles/cart.css';
 
 const Cart = ({ carrito, precioTotal, handleClick, cleanCart }) => {
   return (
-    <>
+    <div className="cart">
       <h1>Carrito</h1>
       {carrito.length > 0 ? (
         <>
-          {carrito.map((carro, idx) => (
-            <CartItemContainer
-              key={carro.id}
-              info={carro}
-              classname={idx % 2 === 0 ? 'par' : 'impar'}
-            />
-          ))}
+          <section className="productos-carrito">
+            {carrito.map((carro, idx) => (
+              <CartItemContainer
+                key={carro.id}
+                info={carro}
+                classname={idx % 2 === 0 ? 'par' : 'impar'}
+              />
+            ))}
+          </section>
           <h2>Total: ${precioTotal}</h2>
           <section className="manage-cart">
             <section className="manage-cart__add">
@@ -38,7 +40,7 @@ const Cart = ({ carrito, precioTotal, handleClick, cleanCart }) => {
       ) : (
         <h1>No hay ningun producto</h1>
       )}
-    </>
+    </div>
   );
 };
 

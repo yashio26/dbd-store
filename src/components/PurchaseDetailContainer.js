@@ -24,16 +24,21 @@ const PurchaseDetailContainer = () => {
         query(collection(db, 'probandoCompra'), where(documentId(), '==', id))
       );
       querySnapshot.forEach((doc) => {
-        setDetalle({ productos: doc.data().productos, id: doc.id });
+        const date = new Date(doc.data().fecha);
+        setDetalle({
+          ...doc.data(),
+          id: doc.id,
+          fecha: date,
+        });
       });
     };
     traerProductos();
   }, [comprasHechas, id]);
 
   return (
-    <>
+    <div className="purchase-detail-container">
       <PurchaseDetail id={id} detalle={detalle} />
-    </>
+    </div>
   );
 };
 

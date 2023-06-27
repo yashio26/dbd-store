@@ -1,11 +1,12 @@
 import React from 'react';
 import '../styles/purchasedDetailItem.css';
 
-const PurchasedDetailItem = ({ product }) => {
+const PurchasedDetailItem = ({ product, info }) => {
+  console.log(info);
   return (
     <section className="purchased-item">
-      <div className="">
-        <h3>{product.producto}</h3>
+      <div>
+        <h4>{product.producto}</h4>
       </div>
       <div>
         <p>Cantidad: {product.cantidad}</p>

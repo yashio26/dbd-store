@@ -1,0 +1,16 @@
+.purchase-detail-container {
+  margin: 2.5vh 0;
+  min-height: 75vh;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.purchase-detail {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
