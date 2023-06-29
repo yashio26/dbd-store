@@ -4,10 +4,10 @@ import '../styles/login.css';
 
 const Login = ({ handleSubmit, login, handleChange }) => {
   return (
-    <div className="loginn">
+    <div className="login">
       <h1>Inicio de sesión</h1>
       <div>
-        <form onSubmit={handleSubmit} className="loginn__form">
+        <form onSubmit={handleSubmit} className="login__form">
           <label>Usuario</label>
           <input
             required

@@ -68,13 +68,13 @@ const LoginContainer = () => {
   };
 
   return (
-    <>
+    <div className="login-container">
       <Login
         login={login}
         handleSubmit={handleSubmit}
         handleChange={handleChange}
       />
-    </>
+    </div>
   );
 };
 

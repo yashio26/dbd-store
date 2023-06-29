@@ -3,9 +3,9 @@ import LoginContainer from '../components/LoginContainer';
 
 const InicioSesion = () => {
   return (
-    <div className="login">
+    <>
       <LoginContainer />
-    </div>
+    </>
   );
 };
 
