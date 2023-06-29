@@ -1,20 +1,12 @@
-.register {
-  min-height: 80vh;
-  /* background: linear-gradient(
-    to left,
-    rgb(58, 58, 58),
-    33%,
-    rgb(73, 73, 73) 50%
-  ); */
+.register-container {
   background: linear-gradient(to left, rgb(49, 0, 0), 33%, rgb(77, 0, 0) 50%);
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
 }
 
-.registerr {
-  /* background-color: rgb(255, 205, 205); */
-  /* background-color: rgb(73, 73, 73); */
-  /* background-color: rgb(77, 0, 0); */
+.register {
   color: white;
-  /* border-right: thin solid gray; */
   height: 80vh;
   width: 50vw;
   display: flex;
@@ -23,25 +15,57 @@
   align-items: center;
 }
 
-.registerr h1 {
+.register h1 {
+  height: 7.5vh;
+}
+
+.register p {
   height: 7.5vh;
 }
 
 .register__form {
-  /* background-color: rgb(255, 193, 193); */
-  /* background-color: rgb(58, 58, 58); */
   background-color: rgb(68, 0, 0);
-  /* border: thin solid rgb(255, 162, 162); */
-  /* border: thin solid rgb(53, 53, 53); */
   border: thin solid rgb(48, 0, 0);
-  width: 40vw;
+  border-radius: 1vw;
   height: 40vh;
+  width: 85vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.registerr p {
-  height: 7.5vh;
+.register__form input {
+  color: black;
+  border: thin solid white;
+  border-radius: 0.4vw;
+  height: 7%;
+  width: 75%;
+}
+
+.register__form button {
+  height: 10%;
+  width: 40%;
+  color: black;
+}
+
+@media ((min-width: 1367px) and (max-width: 1920px)) {
+  .register-container {
+    justify-content: flex-start;
+  }
+
+  .register__form {
+    height: 45vh;
+    width: 40vw;
+  }
+
+  .register__form input {
+    height: 7%;
+    width: 55%;
+  }
+
+  .register__form button {
+    height: 13%;
+    width: 25%;
+  }
 }

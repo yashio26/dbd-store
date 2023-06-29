@@ -21,24 +21,11 @@ const RegisterContainer = () => {
 
   const [error, setError] = useState(false);
 
-  /* useEffect(() => {
-      const session = sessionStorage.getItem('usuario');
-      if (session) {
-        console.log('hay datos en session');
-        setUser(session);
-      } else console.log('no hay datos en session');
-    }, [setUser]); */
-
   const getUser = async () => {
     const docs = [];
-    const q = /* query( */ collection(db, 'usuarios'); /* ,
-        where('usuario', '==', register.usuario),
-        where('email', '==', register.email)
-      ) */
-
+    const q = collection(db, 'usuarios');
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
       const { email, usuario } = doc.data();
       docs.push({ email, usuario });
     });
@@ -91,14 +78,14 @@ const RegisterContainer = () => {
   };
 
   return (
-    <>
+    <div className="register-container">
       <Register
         handleSubmit={handleSubmit}
         handleChange={handleChange}
         register={register}
         error={error}
       />
-    </>
+    </div>
   );
 };
 

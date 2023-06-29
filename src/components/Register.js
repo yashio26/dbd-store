@@ -4,7 +4,7 @@ import '../styles/register.css';
 
 const Register = ({ handleSubmit, handleChange, register, error }) => {
   return (
-    <div className="registerr">
+    <div className="register">
       <h1>Registro</h1>
       <form onSubmit={handleSubmit} className="register__form">
         <label>Nombre</label>
