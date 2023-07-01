@@ -1,7 +1,7 @@
 .purchase-detail-container {
   margin: 2.5vh 0;
   min-height: 75vh;
-  width: 70vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
 }
@@ -13,4 +13,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+}
+
+@media ((min-width: 1367px) and (max-width: 1920px)) {
+  .purchase-detail-container {
+    width: 70vw;
+  }
 }

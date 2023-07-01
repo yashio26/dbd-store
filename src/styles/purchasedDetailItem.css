@@ -10,18 +10,35 @@
 .purchased-item {
   background: linear-gradient(to right, rgb(53, 53, 53), rgb(78, 78, 78) 80%);
   border: thin solid black;
+  border-radius: 2vw;
   margin: 0.1rem 0;
   height: 18vh;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .purchased-item div {
-  width: 25%;
+  width: 50%;
 }
 
 .purchased-item div img {
-  height: 10vh;
+  height: 6vh;
   width: 40%;
+}
+
+@media ((min-width: 1367px) and (max-width: 1920px)) {
+  .purchased-item {
+    border-radius: 0.5vw;
+  }
+
+  .purchased-item div {
+    width: 25%;
+  }
+
+  .purchased-item div img {
+    height: 10vh;
+    width: 35%;
+  }
 }
