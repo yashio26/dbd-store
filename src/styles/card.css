@@ -4,15 +4,15 @@
   border: thin solid white;
   border-radius: 0.5vw;
   margin: 0.5rem;
-  height: 20rem;
-  width: 14rem;
+  height: 15rem;
+  width: 12rem;
   display: flex;
   flex-direction: column;
 }
 
 .card img {
-  height: 15rem;
   border-radius: 0.5vw;
+  height: 10rem;
   background: linear-gradient(rgb(78, 78, 78), 80%, rgb(53, 53, 53));
 }
 
@@ -39,5 +39,42 @@
   }
   to {
     background: linear-gradient(rgb(134, 0, 0), rgb(83, 0, 0));
+  }
+}
+
+@media ((min-width: 1367px) and (max-width: 1920px)) {
+  .card {
+    background-color: rgb(53, 53, 53);
+    color: white;
+    border: thin solid white;
+    border-radius: 0.5vw;
+    margin: 0.5rem;
+    height: 20rem;
+    width: 14rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card img {
+    height: 15rem;
+    border-radius: 0.5vw;
+    background: linear-gradient(rgb(78, 78, 78), 80%, rgb(53, 53, 53));
+  }
+
+  .card p {
+    height: 3rem;
+  }
+
+  .card button {
+    border-radius: 0.5vw;
+    height: 2rem;
+    color: black;
+  }
+
+  .card button:hover {
+    background: linear-gradient(rgb(134, 0, 0), rgb(83, 0, 0));
+    color: white;
+    transition: color 0.8s;
+    animation: changeCardButton 0.6s forwards;
   }
 }
