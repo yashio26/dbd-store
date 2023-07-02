@@ -1,36 +1,40 @@
 .product-detail-container {
-  min-height: 80vh;
+  margin: 2.5vh 0;
+  min-height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .product-detail {
-  background: burlywood;
   background: linear-gradient(rgb(78, 78, 78), rgb(53, 53, 53));
-  height: 70vh;
-  width: 70%;
+  min-height: inherit;
+  width: 90vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .product-detail__img {
-  height: 90%;
-  width: 40%;
+  height: 27vh;
+  width: 70vw;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.product-detail__img img {
+  height: 100%;
+  width: 100%;
 }
 
 .product-detail__data {
-  background-color: rgb(83, 0, 0);
   background-color: rgb(53, 53, 53);
-  border: thin solid rgb(56, 0, 0);
   border: thin solid black;
+  margin-bottom: 1vh;
   min-height: 50vh;
-  max-height: 63vh;
-  width: 55%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -48,7 +52,7 @@
 }
 
 .botones-manejo-stock {
-  width: 12vw;
+  width: 75vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,15 +61,55 @@
 .botones-manejo-stock button {
   background-color: rgba(78, 78, 78, 0.603);
   border: thin solid rgb(78, 78, 78);
-  border-radius: 0.8vw;
-  width: 30%;
-  height: 4vh;
+  border-radius: 2vw;
+  width: 33%;
+  height: 5vh;
+  cursor: pointer;
 }
 
 .boton-agregar-producto button {
   background-color: rgb(179, 0, 0);
   border: thin solid rgb(78, 78, 78);
-  border-radius: 0.4vw;
-  height: 6vh;
-  width: 10vw;
+  border-radius: 3vw;
+  height: 7vh;
+  width: 43vw;
+  cursor: pointer;
+}
+
+@media ((min-width: 1367px) and (max-width: 1920px)) {
+  .product-detail {
+    width: 70%;
+    flex-direction: row;
+  }
+
+  .product-detail__img {
+    height: 90%;
+    width: 40%;
+  }
+
+  .product-detail__img img {
+    height: auto;
+    width: auto;
+  }
+
+  .product-detail__data {
+    margin-bottom: 0;
+    max-height: 70vh;
+    width: 55%;
+  }
+
+  .botones-manejo-stock {
+    width: 16vw;
+  }
+
+  .botones-manejo-stock button {
+    border-radius: 0.8vw;
+    width: 34%;
+  }
+
+  .boton-agregar-producto button {
+    border-radius: 0.4vw;
+    height: 6vh;
+    width: 10vw;
+  }
 }
