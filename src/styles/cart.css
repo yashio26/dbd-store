@@ -1,14 +1,14 @@
 .cart-container {
   margin: 2.5vh 0;
   min-height: 75vh;
-  width: 70vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .cart {
-  min-height: 75vh;
+  min-height: inherit;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,54 +20,87 @@
 
 .manage-cart {
   color: black;
-  height: 10vh;
+  min-height: 10vh;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
 }
 
 .manage-cart__add {
   color: black;
-  height: inherit;
-  width: 33%;
+  height: 4.5vh;
+  width: 70%;
 }
 
 .manage-cart__add a {
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .manage-cart__add a button {
-  width: 16vw;
-  height: 6vh;
+  height: 100%;
+  width: 100%;
 }
 
 .manage-cart__buy {
-  height: inherit;
-  width: 33%;
+  height: 4.5vh;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .manage-cart__buy input {
-  width: 16vw;
-  height: 6vh;
+  height: 100%;
+  width: 100%;
 }
 
 .manage-cart__remove {
-  width: inherit;
-  width: 33%;
+  height: 4.5vh;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .manage-cart__remove input {
-  width: 16vw;
-  height: 6vh;
+  height: 100%;
+  width: 100%;
+}
+
+@media ((min-width: 1367px) and (max-width: 1920px)) {
+  .cart-container {
+    width: 70vw;
+  }
+
+  .cart {
+    min-height: 75vh;
+    width: 100%;
+  }
+
+  .manage-cart {
+    height: 10vh;
+    justify-content: space-around;
+  }
+
+  .manage-cart__add {
+    height: 7.5vh;
+    width: 25%;
+  }
+
+  .manage-cart__buy {
+    height: 7.5vh;
+    width: 25%;
+  }
+
+  .manage-cart__remove {
+    height: 7.5vh;
+    width: 25%;
+  }
 }
